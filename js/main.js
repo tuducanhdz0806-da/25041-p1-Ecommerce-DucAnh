@@ -69,16 +69,18 @@ function renderHeroBanner() {
 
 // Map icon cho từng slug danh mục
 const CATEGORY_ICONS = {
-    'pc-gaming':       '&#127918;',   // 🎮
-    'pc-van-phong':    '&#128188;',   // 💼
-    'cpu':             '&#129504;   ',// ⚙️
-    'vga':             '&#128421;',   // 🖼
-    'mainboard':       '&#128268;',   // 🔌
-    'ram':             '&#128190;',   // 💾
-    'ssd':             '&#128191;',   // 💿
-    'nguon-psu':       '&#9889;',     // ⚡
-    'case-thung-may':  '&#128421;',   // 🖥
-};
+    // Thêm basePath vào trước đường dẫn ảnh
+    'pc-gaming':       basePath + 'images/categories/pc-gaming.jpg',
+    'pc-van-phong':    basePath + 'images/categories/pc-office.png',
+    'pc-do-hoa':       basePath + 'images/categories/pc-graphic.png',
+    'cpu':             basePath + 'images/categories/cpu.jpg',
+    'vga':             basePath + 'images/categories/vga.jpg',
+    'mainboard':       basePath + 'images/categories/mainboard.jpg',
+    'ram':             basePath + 'images/categories/ram.jpg',
+    'ssd':             basePath + 'images/categories/ssd.jpg',
+    'psu-nguon':       basePath + 'images/categories/psu.jpg',
+    'case':            basePath + 'images/categories/case.png',
+};  
 
 /**
  * Render danh sách danh mục.
@@ -101,12 +103,15 @@ function renderCategories() {
     }
 
     const cards = categories.map(function (cat) {
-        const icon = CATEGORY_ICONS[cat.slug] || '&#128230;';
+        // Lấy đường dẫn ảnh từ map, nếu không có thì dùng một ảnh mặc định
+        const imgSrc = CATEGORY_ICONS[cat.slug] || 'images/categories/default-cat.png';
         const url  = `${basePath}product-list/product-list.html?categoryId=${cat.id}`;
 
         return `
-            <a href="${url}" class="category-card" data-category-id="${cat.id}" aria-label="Xem danh mục ${cat.name}">
-                <div class="category-card__icon">${icon}</div>
+            <a href="${url}" class="category-card" data-category-id="${cat.id}">
+                <div class="category-card__icon">
+                    <img src="${imgSrc}" alt="${cat.name}" class="category-icon-img">
+                </div>
                 <h3 class="category-card__name">${cat.name}</h3>
                 <p class="category-card__desc">${cat.description || ''}</p>
                 <span class="category-card__cta">Xem tất cả &#8594;</span>
