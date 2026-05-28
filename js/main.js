@@ -207,8 +207,7 @@ function buildStockHTML(product) {
 }
 
 /**
- * Render danh sách sản phẩm nổi bật (8 sản phẩm đầu, status = active).
- * Target: <section id="featured-products">
+ * Render danh sách sản phẩm nổi bật 
  */
 function renderFeaturedProducts() {
     const el = document.getElementById('featured-products');
@@ -233,7 +232,7 @@ function renderFeaturedProducts() {
 
     const cards = featured.map(function (product) {
         const detailUrl  = `${basePath}product-detail/product-detail.html?id=${product.id}`;
-        const imgSrc     = product.image || '';
+        const imgSrc = product.image ? (basePath + product.image) : '';
         const imgAlt     = product.name  || 'Sản phẩm';
         const isOutStock = product.stock === 0;
 
@@ -418,7 +417,7 @@ function renderWhyChooseUs() {
         `;
     }).join('');
 
-    el.innerHTML = items;
+    el.innerHTML = `<div class="container why-choose-us-grid">${items}</div>`;
 }
 
 // =============================================================
