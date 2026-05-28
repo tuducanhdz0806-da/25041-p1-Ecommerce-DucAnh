@@ -1,3 +1,5 @@
+// js/main.js
+
 const basePath = '/';
 
 function loadData() {

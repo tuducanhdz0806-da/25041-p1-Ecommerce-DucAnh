@@ -14,7 +14,6 @@ const mockUsers = [
         address: 'Tầng 5, Tòa nhà Landmark, Quận Bình Thạnh, TP.HCM',
         role: 'admin',
         status: 'active',
-        avatar: 'images/avatars/admin.jpg',
         createdAt: '2024-01-15T08:00:00Z'
     },
     {
@@ -27,7 +26,6 @@ const mockUsers = [
         address: '123 Nguyễn Huệ, Quận 1, TP.HCM',
         role: 'customer',
         status: 'active',
-        avatar: 'images/avatars/user1.jpg',
         createdAt: '2024-03-20T10:30:00Z'
     },
     {
@@ -40,7 +38,6 @@ const mockUsers = [
         address: '456 Lê Duẩn, Quận Hải Châu, Đà Nẵng',
         role: 'customer',
         status: 'active',
-        avatar: 'images/avatars/user2.jpg',
         createdAt: '2024-05-10T14:15:00Z'
     }
 ];
