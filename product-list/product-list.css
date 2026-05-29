@@ -1,0 +1,512 @@
+/* product-list/product-list.css
+
+
+/* =================================================================
+   1. CONTAINER (TIEU DE TRANG)
+================================================================= */
+.container {
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.container h1 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #1e40af;
+  font-size: 2.5rem;
+}
+
+#page-subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+}
+
+/* =================================================================
+   2. SEARCH BANNER & ACTIVE FILTERS
+================================================================= */
+.search-banner {
+    background-color: #eff6ff;
+    border-bottom: 1px solid #bfdbfe;
+    padding: 10px 0;
+}
+
+.search-banner__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 0.875rem;
+    color: #1e293b;
+}
+
+.search-banner__inner strong { color: #1e40af; }
+
+.active-filters {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 10px 0;
+}
+
+.active-filters__inner {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.active-filters__label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #64748b;
+    white-space: nowrap;
+}
+
+.filter-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    flex: 1;
+}
+
+.filter-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #eff6ff;
+    color: #1e40af;
+    border: 1px solid #bfdbfe;
+    border-radius: 9999px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 3px 10px 3px 12px;
+}
+
+.filter-tag__remove {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(30, 64, 175, 0.15);
+    color: #1e40af;
+    font-size: 0.75rem;
+    cursor: pointer;
+    line-height: 1;
+    transition: background 0.2s;
+}
+
+.filter-tag__remove:hover { background: #1e40af; color: #fff; }
+
+/* =================================================================
+   3. LAYOUT CHÍNH (Sidebar + Grid)
+================================================================= */
+.pl-body {
+    padding-block: 32px 64px;
+}
+
+.pl-body__inner {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 32px;
+    align-items: start;
+}
+
+/* =================================================================
+   4. SIDEBAR BỘ LỌC
+================================================================= */
+.filter-sidebar {
+    background-color: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    /* Dính khi scroll */
+    position: sticky;
+    top: 80px;
+}
+
+.filter-sidebar__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.filter-sidebar__title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.filter-sidebar__toggle {
+    background: none;
+    border: none;
+    color: #64748b;
+    cursor: pointer;
+    font-size: 0.75rem;
+    padding: 4px;
+    transition: color 0.2s;
+}
+
+.filter-sidebar__toggle:hover { color: #1e40af; }
+
+.filter-sidebar__body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    transition: max-height 0.3s ease;
+}
+
+.filter-sidebar__body--collapsed {
+    display: none;
+}
+
+.filter-sidebar__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #e2e8f0;
+}
+
+/* ── Filter Group ── */
+.filter-group__title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #94a3b8;
+    margin-bottom: 12px;
+}
+
+.filter-group__list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.filter-group__item { list-style: none; }
+
+/* ── Checkbox tùy chỉnh ── */
+.filter-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.filter-checkbox input[type="checkbox"] {
+    display: none;
+}
+
+.filter-checkbox__box {
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 4px;
+    background-color: #fff;
+    flex-shrink: 0;
+    transition: background 0.2s, border-color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.filter-checkbox input:checked + .filter-checkbox__box {
+    background-color: #1e40af;
+    border-color: #1e40af;
+}
+
+.filter-checkbox input:checked + .filter-checkbox__box::after {
+    content: '';
+    display: block;
+    width: 9px;
+    height: 5px;
+    border-left: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transform: rotate(-45deg) translateY(-1px);
+}
+
+.filter-checkbox__label {
+    font-size: 0.875rem;
+    color: #475569;
+    transition: color 0.2s;
+}
+
+.filter-checkbox:hover .filter-checkbox__label { color: #1e293b; }
+.filter-checkbox input:checked ~ .filter-checkbox__label {
+    color: #1e293b;
+    font-weight: 500;
+}
+
+/* ── Khoảng giá ── */
+.filter-price {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.filter-price__input {
+    flex: 1;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-family: inherit;
+    font-size: 0.8rem;
+    color: #1e293b;
+    outline: none;
+    transition: border-color 0.2s;
+    min-width: 0;
+}
+
+.filter-price__input:focus { border-color: #1e40af; }
+
+.filter-price__sep {
+    color: #94a3b8;
+    font-size: 0.875rem;
+    flex-shrink: 0;
+}
+
+.filter-price__presets {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.filter-price__preset {
+    background: none;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 0.78rem;
+    color: #64748b;
+    cursor: pointer;
+    text-align: left;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.filter-price__preset:hover {
+    border-color: #1e40af;
+    color: #1e40af;
+    background-color: #eff6ff;
+}
+
+.filter-price__preset.active {
+    border-color: #1e40af;
+    background-color: #eff6ff;
+    color: #1e40af;
+    font-weight: 600;
+}
+
+/* =================================================================
+   5. KHU VỰC SẢN PHẨM
+================================================================= */
+.pl-main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ── Toolbar ── */
+.pl-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background-color: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 10px;
+    gap: 12px;
+}
+
+.pl-toolbar__count {
+    font-size: 0.875rem;
+    color: #64748b;
+}
+
+.pl-toolbar__count span {
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.pl-toolbar__sort {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.875rem;
+    color: #64748b;
+}
+
+.pl-toolbar__sort select {
+    border: 1.5px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 6px 28px 6px 10px;
+    font-family: inherit;
+    font-size: 0.875rem;
+    color: #1e293b;
+    background-color: #fff;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    transition: border-color 0.2s;
+}
+
+.pl-toolbar__sort select:focus { border-color: #1e40af; }
+
+/* ── Loading ── */
+.pl-loading {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 48px;
+    color: #64748b;
+    font-size: 0.875rem;
+}
+
+.pl-loading__spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid #e2e8f0;
+    border-top-color: #1e40af;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Grid sản phẩm ── */
+.pl-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    transition: opacity 0.2s;
+}
+
+/* ── Empty state ── */
+.pl-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 64px 24px;
+    text-align: center;
+}
+
+.pl-empty__icon { font-size: 3rem; }
+
+.pl-empty__title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.pl-empty__sub {
+    font-size: 0.875rem;
+    color: #64748b;
+    margin-bottom: 8px;
+}
+
+/* =================================================================
+   6. PHÂN TRANG
+================================================================= */
+.pl-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding-top: 8px;
+}
+
+.pl-page-btn {
+    min-width: 36px;
+    height: 36px;
+    padding: 0 10px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #475569;
+    font-size: 0.875rem;
+    font-family: inherit;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s, color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pl-page-btn:hover:not(:disabled) {
+    border-color: #1e40af;
+    color: #1e40af;
+    background-color: #eff6ff;
+}
+
+.pl-page-btn--active {
+    background-color: #1e40af;
+    border-color: #1e40af;
+    color: #fff;
+    font-weight: 600;
+}
+
+.pl-page-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.pl-page-ellipsis {
+    color: #94a3b8;
+    font-size: 0.875rem;
+    padding: 0 4px;
+}
+
+/* =================================================================
+   7. RESPONSIVE
+================================================================= */
+@media (max-width: 1024px) {
+    .pl-body__inner {
+        grid-template-columns: 200px 1fr;
+        gap: 20px;
+    }
+
+    .pl-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .pl-body__inner {
+        grid-template-columns: 1fr;
+    }
+
+    /* Sidebar nằm trên, không sticky trên mobile */
+    .filter-sidebar {
+        position: static;
+    }
+
+    .pl-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .pl-toolbar {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .pl-grid {
+        grid-template-columns: 1fr;
+    }
+}
