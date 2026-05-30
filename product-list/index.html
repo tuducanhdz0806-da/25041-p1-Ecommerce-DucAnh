@@ -1,0 +1,120 @@
+<!-- product-list/index.html -->
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sản phẩm — TechWorld PC</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../home/home.css">
+    <link rel="stylesheet" href="product-list.css">
+</head>
+<body>
+
+    <!-- HEADER render boi js -->
+    <header id="main-header" class="header" role="banner"></header>
+
+    <main id="main-content">
+        <div class="container">
+            <h1 id="page-title">Danh sách sản phẩm</h1>
+            <p id="page-subtitle">Tất cả sản phẩm</p>
+        </div>
+
+        <!-- Thong bao ket qua tim kiem -->
+        <div id="search-result-info" class="search-banner" style="display:none;">
+            <div class="container search-banner__inner">
+                <p>Kết quả tìm kiếm cho: <strong id="search-keyword"></strong></p>
+                <button id="clear-search" class="btn btn--ghost btn--sm">✕ Xóa tìm kiếm</button>
+            </div>
+        </div>
+
+        <!-- ACTIVE FILTER TAGS -->
+        <div id="active-filters" class="active-filters" style="display:none;">
+            <div class="container active-filters__inner">
+                <span class="active-filters__label">Đang lọc:</span>
+                <div id="filter-tags" class="filter-tags"></div>
+                <button id="clear-all-filters" class="btn btn--ghost btn--sm">Xóa tất cả</button>
+            </div>
+        </div>
+
+        <div class="pl-body">
+            <div class="container pl-body__inner">
+
+                <!-- SIDEBAR bo loc -->
+                <aside class="filter-sidebar" id="filter-sidebar">
+                    <div class="filter-sidebar__header">
+                        <h3 class="filter-sidebar__title">Bộ lọc</h3>
+                        <button id="toggle-filters" class="filter-sidebar__toggle" aria-label="Ẩn/hiện bộ lọc">
+                            <span class="icon">▼</span>
+                        </button>
+                    </div>
+
+                    <div id="filter-content" class="filter-sidebar__body">
+                        <!-- Cac bo loc render bang js -->
+                        <div id="filter-section"></div>
+
+                        <div class="filter-sidebar__actions">
+                            <button id="apply-filters" class="btn btn--primary btn--block">Áp dụng</button>
+                            <button id="clear-filters" class="btn btn--ghost btn--block">Xóa bộ lọc</button>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Phan san pham -->
+                <div class="pl-main">
+
+                    <!-- Sap xep -->
+                    <div class="pl-toolbar">
+                        <p class="pl-toolbar__count">
+                            <span id="results-count">0</span> sản phẩm
+                        </p>
+                        <div class="pl-toolbar__sort">
+                            <label for="sort-select">Sắp xếp:</label>
+                            <select id="sort-select">
+                                <option value="default">Mặc định</option>
+                                <option value="name-asc">Tên A → Z</option>
+                                <option value="name-desc">Tên Z → A</option>
+                                <option value="price-asc">Giá thấp → cao</option>
+                                <option value="price-desc">Giá cao → thấp</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- LOADING -->
+                    <div id="loading-indicator" class="pl-loading">
+                        <div class="pl-loading__spinner"></div>
+                        <p>Đang tải sản phẩm...</p>
+                    </div>
+
+                    <!-- Luoi san pham render bang js -->
+                    <div id="product-grid" class="pl-grid"></div>
+
+                    <!-- EMPTY STATE -->
+                    <div id="empty-state" class="pl-empty" style="display:none;">
+                        <div class="pl-empty__icon">📦</div>
+                        <h3 class="pl-empty__title">Không tìm thấy sản phẩm</h3>
+                        <p class="pl-empty__sub">Hãy thử điều chỉnh bộ lọc hoặc từ khóa tìm kiếm</p>
+                        <button id="reset-all" class="btn btn--primary">Xóa tất cả bộ lọc</button>
+                    </div>
+
+                    <!-- Phan trang -->
+                    <div id="pagination" class="pl-pagination"></div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER render bang js -->
+    <footer id="main-footer" role="contentinfo"></footer>
+
+    <script src="../js/mock-data.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="product-list.js"></script>
+
+</body>
+</html>

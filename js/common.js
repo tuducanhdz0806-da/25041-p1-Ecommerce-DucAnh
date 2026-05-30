@@ -2,11 +2,6 @@
 // File dùng chung cho toàn bộ website TechWorld PC.
 // Chứa các hàm tiện ích, render header/footer và nạp dữ liệu ban đầu.
 
-// =============================================================
-// CẤU HÌNH CHUNG
-// =============================================================
-
-// Đường dẫn gốc — chỉnh lại nếu project nằm trong subfolder
 const basePath = '../';
 
 // Tên thương hiệu dùng xuyên suốt
