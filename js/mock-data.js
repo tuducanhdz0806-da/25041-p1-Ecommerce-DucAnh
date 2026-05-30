@@ -1,4 +1,3 @@
-
 // js/mock-data.js
 
 
@@ -501,46 +500,6 @@ const mockProducts = [
       tags: ['corsair', 'case', 'airflow', 'giá tốt'],
       createdAt: '2024-01-10T00:00:00Z'
     },
-    {
-      id: 'p19',
-      name: 'CPU Intel Core i5-14600K (3.5GHz up to 5.3GHz, 14 Nhân 20 Luồng)',
-      categoryId: 'c4',
-      price: 8290000,
-      discountPrice: 7890000,
-      stock: 18,
-      image: 'images/products/cpu-i5-14600k.jpg',
-      description: 'CPU tầm trung hiệu năng cao, lý tưởng cho gaming/streaming, mở khóa hệ số nhân.',
-      specifications: {
-        'Socket': 'LGA 1700',
-        'Số nhân': '14 (6 Performance + 8 Efficient)',
-        'Số luồng': '20',
-        'Xung tối đa': '5.3 GHz',
-        'TDP': '125W (Base) / 181W (Turbo)'
-      },
-      status: 'active',
-      tags: ['intel', 'cpu', 'i5'],
-      createdAt: '2024-02-28T00:00:00Z'
-    },
-    {
-      id: 'p20',
-      name: 'GIGABYTE GeForce RTX 4060 Ti AERO OC 8G',
-      categoryId: 'c5',
-      price: 10490000,
-      discountPrice: 9990000,
-      stock: 25,
-      image: 'images/products/vga-rtx4060ti.jpg',
-      description: 'Card đồ họa trắng tinh khôi, hiệu năng tốt cho game 1080p và sáng tạo cơ bản. Tiết kiệm điện.',
-      specifications: {
-        'GPU': 'NVIDIA GeForce RTX 4060 Ti',
-        'VRAM': '8GB GDDR6',
-        'Bus': '128-bit',
-        'Xung': '2565 MHz (Boost)',
-        'Cổng': '2x DP 1.4a, 2x HDMI 2.1a'
-      },
-      status: 'active',
-      tags: ['nvidia', 'rtx', '4060', 'trắng'],
-      createdAt: '2024-05-05T00:00:00Z'
-    }
 ];
 
 // Don hang mau

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechWorld PC — Linh kiện & Máy tính chính hãng</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+
+    <!-- HEADER — render bởi js -->
+    <header id="main-header" class="header" role="banner">
+
+    </header>
+
+    <main id="main-content">
+
+        <!-- HERO BANNER — render bởi js -->
+        <section class="hero" id="hero-banner" aria-label="Banner trang chủ">
+            <noscript>
+                <div class="hero-content">
+                    <h1 class="hero-title">Linh kiện PC chính hãng<br><span>Giá tốt nhất thị trường</span></h1>
+                    <p class="hero-subtitle">Hơn 500 sản phẩm từ Intel, AMD, NVIDIA, Samsung và nhiều thương hiệu uy tín.</p>
+                    <a href="product-list/product-list.html" class="btn btn--primary btn--lg">Mua ngay</a>
+                </div>
+            </noscript>
+        </section>
+
+        <!-- DANH MỤC — render js -->
+        <section class="section" id="categories-section" aria-label="Danh mục sản phẩm">
+            <div class="container">
+                <div class="section-header">
+                    <p class="section-label">Khám phá</p>
+                    <h2 class="section-title">Danh mục sản phẩm</h2>
+                    <p class="section-subtitle">Tất cả linh kiện bạn cần để build hoặc nâng cấp PC.</p>
+                </div>
+                <div id="categories" class="categories-grid" role="list" aria-label="Danh sách danh mục"></div>
+            </div>
+        </section>
+
+        <!-- SẢN PHẨM NỔI BẬT — render bởi js -->
+        <section class="section section--alt" id="products-section" aria-label="Sản phẩm nổi bật">
+            <div class="container">
+                <div class="section-header">
+                    <p class="section-label">Được yêu thích nhất</p>
+                    <h2 class="section-title">Sản phẩm nổi bật</h2>
+                    <p class="section-subtitle">Những sản phẩm được khách hàng tin dùng nhiều nhất tháng này.</p>
+                </div>
+                <div id="featured-products" class="products-grid" role="list" aria-label="Danh sách sản phẩm nổi bật"></div>
+                <div class="section-footer">
+                    <a href="product-list/product-list.html" class="btn btn--outline">
+                        Xem tất cả sản phẩm &rarr;
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHY CHOOSE US — render bởi js -->
+        <section class="section" id="why-choose-us" aria-label="Lý do chọn TechWorld PC">
+            <div class="container"></div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER — render bởi js -->
+    <footer id="main-footer" role="contentinfo"></footer>
+
+
+    <script src="../js/mock-data.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof initApp === 'function') {
+                initApp();
+            } else {
+                console.error('initApp() không tìm thấy. Kiểm tra lại file main.js.');
+            }
+        });
+    </script>
+
+</body>
+</html>
