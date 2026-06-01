@@ -382,12 +382,21 @@ function applyFilters(products) {
     if (!isNaN(maxPrice)) result = result.filter(function (p) { return getPrice(p) <= maxPrice; });
 
     // 3. Từ khóa tìm kiếm
-    if (currentSearchQuery) {
-        const q = currentSearchQuery.toLowerCase();
+    if (currentSearchQuery && currentSearchQuery.trim() !== '') {
+        const q = currentSearchQuery.toLowerCase().trim();
+
+        let categories = [];
+        try {
+            categories = JSON.parse(localStorage.getItem('categories')) || [];
+        } catch (e) {}
         result = result.filter(function (p) {
-            return (p.name        && p.name.toLowerCase().includes(q))
+            const category = categories.find(cat => String(cat.id) === String(p.categoryId));
+            const categoryName = category ? category.name : '';
+        
+            return (p.name && p.name.toLowerCase().includes(q))
                 || (p.description && p.description.toLowerCase().includes(q))
-                || (p.category    && p.category.toLowerCase().includes(q));
+                || (categoryName && categoryName.toLowerCase().includes(q))
+                || (p.tags && Array.isArray(p.tags) && p.tags.some(tag => tag.toLowerCase().includes(q)))
         });
     }
 

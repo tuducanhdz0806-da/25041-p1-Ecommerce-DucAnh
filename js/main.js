@@ -1,38 +1,26 @@
 // js/main.js
-// Script dành riêng cho trang chủ (index.html).
-// Các hàm dùng chung (loadData, loadHeader, loadFooter, formatCurrency)
-// đã được định nghĩa trong common.js — KHÔNG định nghĩa lại ở đây.
 
-// =============================================================
-// KHỞI ĐỘNG ỨNG DỤNG
-// =============================================================
 
 document.addEventListener('DOMContentLoaded', function () {
     initApp();
 });
 
-/**
- * Điểm khởi động chính của trang chủ.
- * Thứ tự gọi quan trọng: loadData trước, sau đó mới render UI.
- */
+
 function initApp() {
-    loadData();                  // common.js — nạp dữ liệu mock vào localStorage nếu chưa có
-    loadHeader();                // common.js — render header + nav + search
-    loadFooter();                // common.js — render footer
-    renderHeroBanner();          // trang chủ   — banner giới thiệu
-    renderCategories();          // trang chủ   — danh mục sản phẩm
-    renderFeaturedProducts();    // trang chủ   — sản phẩm nổi bật
-    renderWhyChooseUs();         // trang chủ   — lý do chọn TechWorld
+    loadData();               
+    loadHeader();            
+    loadFooter();            
+    renderHeroBanner();         
+    renderCategories();          
+    renderFeaturedProducts();   
+    renderWhyChooseUs();         
 }
 
 // =============================================================
 // 1. HERO BANNER
 // =============================================================
 
-/**
- * Render banner hero phía trên trang chủ.
- * Target: <section id="hero-banner">
- */
+
 function renderHeroBanner() {
     const el = document.getElementById('hero-banner');
     if (!el) return;

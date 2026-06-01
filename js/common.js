@@ -174,10 +174,7 @@ function loadHeader() {
         if (!query) return;
 
         // Xác định prefix đường dẫn tương đối dựa trên vị trí trang hiện tại
-        const depth = (window.location.pathname.match(/\//g) || []).length;
-        const prefix = depth > 1 ? '../' : '';
-
-        window.location.href = `${prefix}product-list/product-list.html?search=${encodeURIComponent(query)}`;
+        window.location.href = `${basePath}product-list/index.html?search=${encodeURIComponent(query)}`;
     }
 
     if (searchBtn)   searchBtn.addEventListener('click', doSearch);
