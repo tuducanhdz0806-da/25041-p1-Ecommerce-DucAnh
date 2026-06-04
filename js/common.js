@@ -7,9 +7,7 @@ const basePath = '../';
 // Tên thương hiệu dùng xuyên suốt
 const BRAND_NAME = 'TechWorld PC';
 
-// =============================================================
-// 1. TIỆN ÍCH: ĐỊNH DẠNG TIỀN TỆ
-// =============================================================
+
 
 /**
  * Định dạng số thành chuỗi tiền tệ VND.
@@ -20,12 +18,12 @@ function formatCurrency(amount) {
     if (typeof amount !== 'number' || isNaN(amount)) {
         return 'Liên hệ';
     }
-    return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(amount);
+    return new Intl.NumberFormat('vi-VN', { 
+        style: 'currency', 
+        currency: 'VND' 
+    }).format(amount);
 }
 
-// =============================================================
-// 2. TIỆN ÍCH: NAV LINKS CHO KHÁCH (chưa đăng nhập)
-// =============================================================
 
 /**
  * Trả về chuỗi HTML các liên kết điều hướng dành cho khách vãng lai.
@@ -41,9 +39,7 @@ function getGuestNavLinks() {
     `;
 }
 
-// =============================================================
-// 3. RENDER HEADER
-// =============================================================
+
 
 /**
  * Render toàn bộ nội dung header vào phần tử có id="main-header".
@@ -183,9 +179,7 @@ function loadHeader() {
     });
 }
 
-// =============================================================
-// 4. RENDER FOOTER
-// =============================================================
+
 
 /**
  * Render toàn bộ nội dung footer vào phần tử có id="main-footer".
@@ -256,9 +250,7 @@ function loadFooter() {
     `;
 }
 
-// =============================================================
-// 5. NẠP DỮ LIỆU BAN ĐẦU VÀO localStorage
-// =============================================================
+
 
 /**
  * Kiểm tra từng key trong localStorage.

@@ -1,14 +1,9 @@
 // product-list/product-list.js
-// Kế thừa: basePath, formatCurrency, loadHeader, loadFooter, loadData từ common.js
 
-// =============================================================
-// BIẾN TOÀN CỤC
-// =============================================================
 let currentPage    = 1;
-const ITEMS_PER_PAGE = 12;   // 12 sản phẩm/trang — đẹp với grid 4 cột (3 hàng)
-
+const ITEMS_PER_PAGE = 12;   
 let currentFilters = {
-    categories: [],   // mảng id danh mục đang chọn
+    categories: [],  
     minPrice:   '',
     maxPrice:   ''
 };
@@ -16,14 +11,10 @@ let currentSort        = 'default';
 let filteredProducts   = [];
 let currentSearchQuery = '';
 
-// =============================================================
-// KHỞI ĐỘNG
-// =============================================================
-document.addEventListener('DOMContentLoaded', function () {
-    // Nạp dữ liệu vào localStorage nếu chưa có (từ common.js)
-    if (typeof loadData === 'function') loadData();
 
-    // Render header & footer (từ common.js)
+// KHỞI ĐỘNG
+document.addEventListener('DOMContentLoaded', function () {
+    if (typeof loadData === 'function') loadData();
     if (typeof loadHeader === 'function') loadHeader();
     if (typeof loadFooter === 'function') loadFooter();
 
@@ -50,9 +41,7 @@ function initializeProductList() {
     applyFiltersAndSort();
 }
 
-// =============================================================
 // GẮN SỰ KIỆN
-// =============================================================
 function setupEventListeners() {
     // Áp dụng bộ lọc
     document.getElementById('apply-filters')
@@ -110,9 +99,8 @@ function setupEventListeners() {
         });
 }
 
-// =============================================================
+
 // RENDER BỘ LỌC
-// =============================================================
 function renderFilters() {
     const filterSection = document.getElementById('filter-section');
     if (!filterSection) return;
@@ -290,9 +278,7 @@ function buildProductCard(product) {
     `;
 }
 
-// =============================================================
 // PHÂN TRANG
-// =============================================================
 function renderPagination(totalItems) {
     const container = document.getElementById('pagination');
     if (!container) return;
@@ -348,9 +334,7 @@ function renderPagination(totalItems) {
     });
 }
 
-// =============================================================
 // LỌC & SẮP XẾP
-// =============================================================
 function collectFilters() {
     currentFilters.categories = [];
 
@@ -464,9 +448,7 @@ function clearAllFilters() {
     currentPage = 1;
 }
 
-// =============================================================
 // THẺ BỘ LỌC ĐANG HOẠT ĐỘNG
-// =============================================================
 function renderActiveFilters() {
     const wrapper = document.getElementById('active-filters');
     const tagsEl  = document.getElementById('filter-tags');
@@ -549,9 +531,7 @@ window.removeFilter = function (type, value) {
     applyFiltersAndSort();
 };
 
-// =============================================================
 // TIÊU ĐỀ & BREADCRUMB
-// =============================================================
 function updatePageTitle() {
     const titleEl    = document.getElementById('page-title');
     const subtitleEl = document.getElementById('page-subtitle');
@@ -600,9 +580,7 @@ function hideLoading() {
     if (grid)      grid.style.opacity      = '1';
 }
 
-// =============================================================
 // UI HELPERS
-// =============================================================
 function updateResultsCount(count) {
     const el = document.getElementById('results-count');
     if (el) el.textContent = count.toLocaleString('vi-VN');
@@ -628,14 +606,12 @@ function syncUrlParams() {
     window.history.replaceState({}, '', newUrl);
 }
 
-// =============================================================
 // THÊM VÀO GIỎ HÀNG (từ trang product-list)
-// =============================================================
 window.handleAddToCartPL = function (productId) {
     const currentUserJson = localStorage.getItem('currentUser');
     if (!currentUserJson) {
         if (confirm('Bạn cần đăng nhập để thêm vào giỏ hàng.\nChuyển đến trang đăng nhập?')) {
-            window.location.href = basePath + 'login/login.html';
+            window.location.href = basePath + 'login/index.html';
         }
         return;
     }

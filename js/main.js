@@ -72,7 +72,6 @@ const CATEGORY_ICONS = {
 
 /**
  * Render danh sách danh mục.
- * Target: <section id="categories">
  */
 function renderCategories() {
     const el = document.getElementById('categories');
@@ -93,7 +92,7 @@ function renderCategories() {
     const cards = categories.map(function (cat) {
         // Lấy đường dẫn ảnh từ map, nếu không có thì dùng một ảnh mặc định
         const imgSrc = CATEGORY_ICONS[cat.slug] || 'images/categories/default-cat.png';
-        const url  = `${basePath}product-list/product-list.html?categoryId=${cat.id}`;
+        const url  = `${basePath}product-list/index.html?categoryId=${cat.id}`;
 
         return `
             <a href="${url}" class="category-card" data-category-id="${cat.id}">
@@ -115,8 +114,6 @@ function renderCategories() {
 // =============================================================
 
 /**
- * Tính giá thấp nhất từ mảng units của sản phẩm.
- * Nếu không có units, fallback về product.price.
  * @param {Object} product
  * @returns {number|null}
  */
@@ -133,7 +130,6 @@ function getLowestPrice(product) {
 
 /**
  * Xây dựng HTML badge cho sản phẩm.
- * Ưu tiên: discountPrice → badge "Sale", stock thấp → badge "Hot", mặc định → "Nổi bật".
  * @param {Object} product
  * @returns {string}
  */
@@ -219,7 +215,7 @@ function renderFeaturedProducts() {
     }
 
     const cards = featured.map(function (product) {
-        const detailUrl  = `${basePath}product-detail/product-detail.html?id=${product.id}`;
+        const detailUrl  = `${basePath}product-detail/index.html?id=${product.id}`;
         const imgSrc = product.image ? (basePath + product.image) : '';
         const imgAlt     = product.name  || 'Sản phẩm';
         const isOutStock = product.stock === 0;
@@ -266,11 +262,9 @@ function renderFeaturedProducts() {
                         ${!isOutStock ? `
                         <button
                             class="btn btn--ghost btn--sm btn--icon"
-                            onclick="handleAddToCart(${product.id})"
+                            onclick="handleAddToCart('${product.id}')"
                             title="Thêm vào giỏ hàng"
-                            aria-label="Thêm ${product.name} vào giỏ hàng"
-                        >
-                            &#128722;
+                            aria-label="Thêm ${product.name} vào giỏ hàng"> 🛒
                         </button>` : ''}
                     </div>
 
@@ -292,11 +286,11 @@ function renderFeaturedProducts() {
  * Nếu đã có trong giỏ → tăng số lượng lên 1.
  * @param {number} productId
  */
-function handleAddToCart(productId) {
+window.handleAddToCart = function(productId) {
     const currentUserJson = localStorage.getItem('currentUser');
     if (!currentUserJson) {
         if (confirm('Bạn cần đăng nhập để thêm vào giỏ hàng.\nChuyển đến trang đăng nhập?')) {
-            window.location.href = `${basePath}login/login.html`;
+            window.location.href = `${basePath}login/index.html`;
         }
         return;
     }
