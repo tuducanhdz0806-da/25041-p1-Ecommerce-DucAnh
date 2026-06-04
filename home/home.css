@@ -1,6 +1,7 @@
-/* home.home.css
-
-
+/* =================================================================
+   home.css - Responsive với breakpoints 900px và 600px
+   THEO ĐÚNG YÊU CẦU: Products 900px→2 cột, 600px→1 cột
+================================================================= */
 
 /* =================================================================
    1. RESET & BASE
@@ -47,25 +48,20 @@ button {
     background: none;
 }
 
-/* ── Focus (Accessibility) ── */
 :focus-visible {
     outline: 2px solid #1e40af;
     outline-offset: 3px;
     border-radius: 4px;
 }
 
-/* ── Màu chọn văn bản ── */
 ::selection {
     background-color: #bfdbfe;
     color: #1e293b;
 }
 
-
 /* =================================================================
    2. TIỆN ÍCH CHUNG
 ================================================================= */
-
-/* ── Container: căn giữa + giới hạn chiều rộng ── */
 .container {
     width: 100%;
     max-width: 1280px;
@@ -73,22 +69,18 @@ button {
     padding-inline: clamp(1rem, 4vw, 2.5rem);
 }
 
-/* ── Section ── */
 .section {
     padding-block: 64px;
 }
 
-/* Section nền xám xen kẽ */
 .section--alt {
     background-color: #f8fafc;
 }
 
-/* ── Tiêu đề section ── */
 .section-header {
     margin-bottom: 40px;
 }
 
-/* Nhãn nhỏ phía trên tiêu đề, ví dụ "KHÁM PHÁ" */
 .section-label {
     display: inline-block;
     font-size: 0.75rem;
@@ -99,7 +91,6 @@ button {
     margin-bottom: 8px;
 }
 
-/* Tiêu đề chính */
 .section-title {
     font-size: clamp(1.5rem, 3vw, 2rem);
     font-weight: 700;
@@ -108,20 +99,17 @@ button {
     margin-bottom: 8px;
 }
 
-/* Mô tả dưới tiêu đề */
 .section-subtitle {
     font-size: 1rem;
     color: #64748b;
     max-width: 520px;
 }
 
-/* Nút "Xem tất cả" ở cuối section */
 .section-footer {
     margin-top: 40px;
     text-align: center;
 }
 
-/* Thông báo khi danh sách rỗng */
 .empty-msg {
     text-align: center;
     padding: 48px 0;
@@ -129,18 +117,15 @@ button {
     font-size: 1rem;
 }
 
-
 /* =================================================================
    3. NÚT BẤM (BUTTONS)
 ================================================================= */
-
-/* ── Base ── */
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    font-family: 'Be Vietnam Pro', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 0.9rem;
     font-weight: 500;
     white-space: nowrap;
@@ -155,14 +140,21 @@ button {
     transform: translateY(1px);
 }
 
-/* ── Kích thước ── */
 .btn--sm  { padding: 8px 16px;  font-size: 0.8rem; }
 .btn--md  { padding: 12px 24px; font-size: 0.9rem; }
 .btn--lg  { padding: 12px 32px; font-size: 1rem;   }
 .btn--block { width: 100%; }
-.btn--icon  { padding: 8px; }
 
-/* ── Nút chính: nền xanh ── */
+.btn--icon {
+    padding: 8px;
+    min-width: 36px;
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+}
+
 .btn--primary,
 .btn-primary {
     background-color: #1e40af;
@@ -170,7 +162,7 @@ button {
     border: 2px solid #1e40af;
     border-radius: 8px;
     padding: 12px 24px;
-    font-family: 'Be Vietnam Pro', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 0.9rem;
     font-weight: 500;
     display: inline-flex;
@@ -180,6 +172,7 @@ button {
     text-decoration: none;
     transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
 }
+
 .btn--primary:hover,
 .btn-primary:hover {
     background-color: #1e3a8a;
@@ -188,12 +181,12 @@ button {
     transform: translateY(-2px);
 }
 
-/* ── Nút viền xanh ── */
 .btn--outline {
     background-color: transparent;
     color: #1e40af;
     border: 2px solid #1e40af;
 }
+
 .btn--outline:hover {
     background-color: #1e40af;
     color: #ffffff;
@@ -201,22 +194,20 @@ button {
     transform: translateY(-2px);
 }
 
-/* ── Nút xám nhạt ── */
 .btn--ghost {
     background-color: #f8fafc;
     color: #64748b;
     border: 1.5px solid #e2e8f0;
 }
+
 .btn--ghost:hover {
     background-color: #eff6ff;
     color: #1e40af;
     border-color: #1e40af;
 }
 
-
 /* =================================================================
    4. HEADER & NAVIGATION
-   Flexbox: logo trái, search giữa, nav phải
 ================================================================= */
 #main-header {
     position: sticky;
@@ -235,7 +226,6 @@ button {
     height: 64px;
 }
 
-/* ── Logo ── */
 .header-logo {
     display: flex;
     align-items: center;
@@ -256,7 +246,6 @@ button {
     color: #1e293b;
 }
 
-/* ── Thanh tìm kiếm — bo tròn hoàn toàn ── */
 .header-search {
     flex: 1;
     max-width: 400px;
@@ -280,10 +269,11 @@ button {
     border: none;
     background: transparent;
     padding: 8px 16px;
-    font-family: 'Be Vietnam Pro', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 0.875rem;
     color: #1e293b;
     outline: none;
+    min-width: 0;
 }
 
 .header-search input::placeholder {
@@ -304,7 +294,6 @@ button {
     color: #1e40af;
 }
 
-/* ── Menu điều hướng ── */
 .nav-menu {
     display: flex;
     align-items: center;
@@ -334,7 +323,6 @@ button {
     color: #1e293b;
 }
 
-/* Nút Đăng ký — nổi bật */
 .nav-link--register {
     background-color: #1e40af;
     color: #ffffff !important;
@@ -353,7 +341,6 @@ button {
     position: relative;
 }
 
-/* Số lượng giỏ hàng */
 .cart-badge {
     display: inline-flex;
     align-items: center;
@@ -373,7 +360,6 @@ button {
     display: none;
 }
 
-/* Nút hamburger — ẩn trên desktop */
 .mobile-menu-toggle {
     display: none;
     padding: 8px;
@@ -387,25 +373,20 @@ button {
     background-color: #f8fafc;
 }
 
-
 /* =================================================================
    5. HERO BANNER
-   Nền tối #0D0F14, lưới xanh mờ, glow xanh từ dưới
 ================================================================= */
 .hero {
     position: relative;
     background-color: #0D0F14;
-    /* Lưới grid xanh mờ phía sau */
-    background-image:
-        linear-gradient(rgba(30, 64, 175, 0.07) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(30, 64, 175, 0.07) 1px, transparent 1px);
+    background-image: linear-gradient(rgba(30, 64, 175, 0.07) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(30, 64, 175, 0.07) 1px, transparent 1px);
     background-size: 48px 48px;
     padding-block: 80px;
     overflow: hidden;
     border-bottom: 1px solid #1e293b;
 }
 
-/* Glow xanh hình ellipse từ dưới lên — tạo chiều sâu */
 .hero::before {
     content: '';
     position: absolute;
@@ -419,7 +400,7 @@ button {
 }
 
 .hero-content {
-    position: relative;        /* Nằm trên layer glow */
+    position: relative;
     z-index: 1;
     max-width: 1280px;
     margin-inline: auto;
@@ -427,7 +408,6 @@ button {
     text-align: center;
 }
 
-/* Nhãn nhỏ phía trên tiêu đề */
 .hero-eyebrow {
     display: inline-block;
     font-size: 0.78rem;
@@ -442,7 +422,6 @@ button {
     margin-bottom: 24px;
 }
 
-/* Tiêu đề lớn — chữ trắng */
 .hero-title {
     font-size: clamp(2.2rem, 5.5vw, 3.2rem);
     font-weight: 800;
@@ -452,12 +431,10 @@ button {
     margin-bottom: 16px;
 }
 
-/* Dòng nhấn màu xanh */
 .hero-title span {
     color: #3b82f6;
 }
 
-/* Mô tả ngắn */
 .hero-subtitle {
     font-size: 1rem;
     color: rgba(241, 245, 249, 0.6);
@@ -466,7 +443,6 @@ button {
     margin-bottom: 36px;
 }
 
-/* Nhóm nút CTA */
 .hero-actions {
     display: flex;
     gap: 16px;
@@ -475,7 +451,6 @@ button {
     margin-bottom: 48px;
 }
 
-/* Thống kê nhỏ dưới CTA */
 .hero-stats {
     display: flex;
     justify-content: center;
@@ -508,19 +483,15 @@ button {
     margin-top: 6px;
 }
 
-
 /* =================================================================
    6. DANH MỤC SẢN PHẨM (Categories)
 ================================================================= */
-
-/* Grid 5 cột — 9 danh mục sẽ hiển thị thành 2 hàng (hàng 1: 5, hàng 2: 4) */
 .categories-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 16px;
 }
 
-/* ── Thẻ danh mục — thu nhỏ cho layout 5 cột ── */
 .category-card {
     display: flex;
     flex-direction: column;
@@ -542,7 +513,6 @@ button {
     transform: translateY(-4px);
 }
 
-/* ── Khung ảnh: nhỏ hơn cho layout 5 cột ── */
 .category-card__icon {
     width: 56px;
     height: 56px;
@@ -556,7 +526,6 @@ button {
     flex-shrink: 0;
 }
 
-/* Ảnh bên trong — object-fit: contain để không bị méo */
 .category-card__icon img {
     width: 100%;
     height: 100%;
@@ -564,7 +533,6 @@ button {
     padding: 6px;
 }
 
-/* Fallback emoji/icon */
 .category-card__icon span {
     font-size: 1.5rem;
     line-height: 1;
@@ -578,7 +546,6 @@ button {
     line-height: 1.3;
 }
 
-/* Ẩn desc và cta ở layout 5 cột cho gọn */
 .category-card__desc {
     display: none;
 }
@@ -587,19 +554,15 @@ button {
     display: none;
 }
 
-
 /* =================================================================
    7. SẢN PHẨM NỔI BẬT (Featured Products)
 ================================================================= */
-
-/* Grid 4 cột cố định trên desktop */
 .products-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
 
-/* ── Thẻ sản phẩm ── */
 .product-card {
     display: flex;
     flex-direction: column;
@@ -608,6 +571,8 @@ button {
     border-radius: 16px;
     overflow: hidden;
     transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    height: 100%;
+    min-width: 0;
 }
 
 .product-card:hover {
@@ -616,7 +581,6 @@ button {
     transform: translateY(-4px);
 }
 
-/* ── Khung ảnh sản phẩm ── */
 .product-card__img-wrap {
     display: block;
     position: relative;
@@ -636,7 +600,6 @@ button {
     transform: scale(1.05);
 }
 
-/* ── Nội dung text ── */
 .product-card__body {
     display: flex;
     flex-direction: column;
@@ -645,9 +608,7 @@ button {
     gap: 8px;
 }
 
-/* Tên sản phẩm — tối đa 2 dòng */
-.product-card__name,
-.product-name {
+.product-card__name {
     font-size: 0.9rem;
     font-weight: 600;
     color: #1e293b;
@@ -658,14 +619,13 @@ button {
     overflow: hidden;
     text-decoration: none;
     transition: color 0.3s;
+    min-height: 2.8em;
 }
 
-.product-card__name:hover,
-.product-name:hover {
+.product-card__name:hover {
     color: #1e40af;
 }
 
-/* Mô tả ngắn — tối đa 2 dòng */
 .product-card__desc {
     font-size: 0.8rem;
     color: #64748b;
@@ -676,42 +636,28 @@ button {
     overflow: hidden;
 }
 
-/* ── Giá sản phẩm ── */
 .product-price {
     display: flex;
     align-items: baseline;
     flex-wrap: wrap;
     gap: 8px;
+    row-gap: 4px;
 }
 
-/* Giá hiện tại — to, đậm, màu xanh */
 .product-price__current {
     font-size: 1.05rem;
     font-weight: 700;
     color: #1e40af;
     letter-spacing: -0.01em;
+    white-space: nowrap;
 }
 
-/* Giá gốc gạch ngang */
 .product-price__original {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: #94a3b8;
     text-decoration: line-through;
+    white-space: nowrap;
 }
-
-/* ── Nhóm nút hành động ── */
-.product-card__actions {
-    display: flex;
-    gap: 8px;
-    margin-top: auto;
-    padding-top: 12px;
-    border-top: 1px solid #e2e8f0;
-}
-
-
-/* =================================================================
-   8. BADGE & TỒN KHO
-================================================================= */
 
 .product-badge {
     position: absolute;
@@ -723,42 +669,77 @@ button {
     padding: 3px 10px;
     border-radius: 9999px;
     z-index: 1;
+    white-space: nowrap;
 }
 
-.product-badge--sale     { background-color: #dc2626; color: #ffffff; }
-.product-badge--hot      { background-color: #ea580c; color: #ffffff; }
-.product-badge--featured { background-color: #1e40af; color: #ffffff; }
+.product-badge--sale {
+    background-color: #dc2626;
+    color: #ffffff;
+}
+
+.product-badge--hot {
+    background-color: #ea580c;
+    color: #ffffff;
+}
+
+.product-badge--featured {
+    background-color: #1e40af;
+    color: #ffffff;
+}
 
 .product-stock {
     display: inline-block;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 500;
-    padding: 2px 10px;
+    padding: 2px 8px;
     border-radius: 9999px;
+    width: fit-content;
+    white-space: nowrap;
 }
 
-.product-stock--in  { background-color: #dcfce7; color: #16a34a; }
-.product-stock--low { background-color: #fef9c3; color: #d97706; }
-.product-stock--out { background-color: #fee2e2; color: #dc2626; }
+.product-stock--in {
+    background-color: #dcfce7;
+    color: #16a34a;
+}
 
+.product-stock--low {
+    background-color: #fef9c3;
+    color: #d97706;
+}
+
+.product-stock--out {
+    background-color: #fee2e2;
+    color: #dc2626;
+}
+
+.product-card__actions {
+    display: flex;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.product-card__actions .btn--primary {
+    flex: 1;
+}
 
 /* =================================================================
-   9. WHY CHOOSE US
+   8. WHY CHOOSE US
 ================================================================= */
-
 .why-choose-us-grid {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* QUAN TRỌNG: Đẩy tất cả ra giữa */
+    justify-content: center;
     gap: 24px;
     margin-top: 40px;
 }
 
 .feature-card {
-    flex: 0 1 280px; /* Không cho thẻ quá to, giữ ở mức 280px */
+    flex: 0 1 280px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Căn giữa nội dung bên trong thẻ */
+    align-items: center;
     text-align: center;
     padding: 32px 24px;
     background-color: #ffffff;
@@ -769,7 +750,7 @@ button {
 
 .feature-card:hover {
     transform: translateY(-8px);
-    border-color: #1e40af; /* Màu xanh chủ đạo của bạn */
+    border-color: #1e40af;
     box-shadow: 0 12px 24px rgba(30, 64, 175, 0.1);
 }
 
@@ -790,7 +771,7 @@ button {
 .feature-card:hover .feature-card__icon {
     background-color: #1e40af;
     color: #ffffff;
-    transform: rotate(-5deg); /* Hiệu ứng xoay nhẹ cho chuyên nghiệp */
+    transform: rotate(-5deg);
 }
 
 .feature-card__title {
@@ -806,9 +787,8 @@ button {
     line-height: 1.6;
 }
 
-
 /* =================================================================
-   10. FOOTER
+   9. FOOTER
 ================================================================= */
 #main-footer {
     background-color: #0f172a;
@@ -819,7 +799,6 @@ button {
     padding-block: 64px 32px;
 }
 
-/* Grid 4 cột */
 .footer-grid {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1.5fr;
@@ -890,9 +869,8 @@ button {
     color: rgba(241, 245, 249, 0.35);
 }
 
-
 /* =================================================================
-   11. TOAST NOTIFICATION
+   10. TOAST NOTIFICATION
 ================================================================= */
 .toast {
     background-color: #0f172a;
@@ -906,79 +884,125 @@ button {
     line-height: 1.5;
 }
 
-
 /* =================================================================
-   12. RESPONSIVE — MOBILE (≤ 768px)
+   11. RESPONSIVE - BREAKPOINT 900px
+   =================================================================
+   Thay đổi:
+   - Header: chuyển thành hamburger menu
+   - Categories: 5 cột → 4 cột
+   - Products: 4 cột → 2 cột (THEO YÊU CẦU)
+   - Footer: 4 cột → 2 cột
 ================================================================= */
-@media (max-width: 768px) {
-
-    /* ── Header ── */
+@media (max-width: 900px) {
+    /* === HEADER: HAMBURGER MENU === */
     .header-inner {
         flex-wrap: wrap;
         height: auto;
         padding-block: 12px;
         gap: 12px;
+        position: relative;
     }
 
     .mobile-menu-toggle {
         display: flex;
-        order: -1;
+        order: 1;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        font-size: 1.4rem;
     }
 
     .header-logo {
+        order: 2;
         flex: 1;
     }
 
     .header-search {
-        order: 3;
+        order: 4;
         max-width: 100%;
         width: 100%;
+        margin-top: 4px;
     }
 
-    /* Nav ẩn mặc định, mở ra khi toggle */
+    /* Ẩn menu mặc định */
     .nav-menu {
-        order: 4;
-        width: 100%;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0;
-        max-height: 0;
-        overflow: hidden;
-        margin-left: 0;
-        transition: max-height 0.3s ease;
-    }
-
-    .nav-menu.nav-menu--open {
-        max-height: 400px;
-    }
-
-    .nav-link {
-        padding: 12px 16px;
-        border-radius: 0;
+        order: 3;
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #ffffff;
         border-top: 1px solid #e2e8f0;
-        justify-content: flex-start;
-    }
-
-    .nav-link--register {
-        margin: 12px 0;
-        border-radius: 9999px;
-        border-top: none;
-    }
-
-    /* ── Hero ── */
-    .hero-actions {
+        border-bottom: 1px solid #e2e8f0;
+        padding: 12px 20px;
         flex-direction: column;
-        align-items: center;
+        gap: 8px;
+        z-index: 1000;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        margin-left: 0;
+    }
+    
+    /* Hiển thị menu khi có class nav-menu--open */
+    .nav-menu.nav-menu--open {
+        display: flex;
+    }
+    
+    /* Style cho link trong menu mobile */
+    .nav-menu .nav-link {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 12px 16px;
+        border-radius: 8px;
+        white-space: normal;
+    }
+    
+    .nav-menu .nav-link--register {
+        width: auto;
+        justify-content: center;
+        margin-top: 8px;
     }
 
-    /* ── Section ── */
+    /* === CATEGORIES: 5 cột → 4 cột === */
+    .categories-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+    }
+
+    /* === PRODUCTS: 4 cột → 2 cột (THEO YÊU CẦU) === */
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    /* === FOOTER: 4 cột → 2 cột === */
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+    }
+
+    /* Section padding giảm */
     .section {
         padding-block: 48px;
     }
+}
 
-    /* ── Categories: 3 cột trên tablet ── */
+/* =================================================================
+   12. RESPONSIVE - BREAKPOINT 600px
+   =================================================================
+   Thay đổi:
+   - Categories: 4 cột → 2 cột
+   - Products: 2 cột → 1 cột (THEO YÊU CẦU)
+   - Giá sản phẩm: chuyển thành column layout
+   - Nút action: column layout, nút icon full width
+   - Badge: giảm padding
+   - Footer: 2 cột → 1 cột
+================================================================= */
+@media (max-width: 600px) {
+    /* === CATEGORIES: 4 cột → 2 cột === */
     .categories-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 12px;
     }
 
@@ -986,27 +1010,129 @@ button {
         padding: 12px 8px;
     }
 
-    /* desc và cta đã ẩn sẵn, không cần override thêm */
+    .category-card__icon {
+        width: 48px;
+        height: 48px;
+    }
 
-    /* ── Products: 2 cột ── */
+    .category-card__name {
+        font-size: 0.7rem;
+    }
+
+    /* === PRODUCTS: 2 cột → 1 cột (THEO YÊU CẦU) === */
     .products-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-    }
-
-    .product-card__body {
-        padding: 12px;
-    }
-
-    /* ── Why Choose Us: 1 cột ── */
-    #why-choose-us .container {
         grid-template-columns: 1fr;
+        gap: 16px;
+        max-width: 400px;
+        margin-inline: auto;
     }
 
-    /* ── Footer: 1 cột ── */
+    /* Card body padding giảm */
+    .product-card__body {
+        padding: 14px;
+    }
+
+    /* === GIÁ SẢN PHẨM: CHUYỂN THÀNH COLUMN LAYOUT === */
+    .product-price {
+        display: flex;
+        align-items: baseline;
+        flex-wrap: nowrap;  
+        gap: 8px;
+        overflow-x: auto;   
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .product-price__current {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #1e40af;
+        letter-spacing: -0.01em;
+        white-space: nowrap;
+        flex-shrink: 0;     
+    }
+
+    .product-price__original {
+        font-size: 0.75rem;
+        color: #94a3b8;
+        text-decoration: line-through;
+        white-space: nowrap;
+        flex-shrink: 0;    
+    }
+
+    /* === BADGE: GIẢM KÍCH THƯỚC PADDING === */
+    .product-badge {
+        font-size: 0.6rem;
+        padding: 2px 8px;
+        top: 8px;
+        left: 8px;
+    }
+
+    /* === NÚT ACTION: COLUMN LAYOUT, NÚT ICON FULL WIDTH === */
+    .product-card__actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .product-card__actions .btn--primary {
+        width: 100%;
+    }
+    
+    .product-card__actions .btn--icon {
+        width: 100%;
+        padding: 10px;
+        min-height: 44px;
+    }
+
+    /* Stock indicator */
+    .product-stock {
+        font-size: 0.65rem;
+        padding: 2px 8px;
+    }
+
+    /* === HERO: giảm padding === */
+    .hero {
+        padding-block: 48px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-stats {
+        gap: 0;
+    }
+
+    .hero-stat {
+        padding: 8px 16px;
+    }
+
+    .hero-stat strong {
+        font-size: 1.3rem;
+    }
+
+    /* === WHY CHOOSE US === */
+    .why-choose-us-grid {
+        gap: 16px;
+    }
+
+    .feature-card {
+        padding: 24px 16px;
+    }
+
+    /* === FOOTER: 2 cột → 1 cột === */
     .footer-grid {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 28px;
+        text-align: center;
+    }
+
+    .footer-logo {
+        justify-content: center;
+    }
+
+    .footer-col p {
+        margin-inline: auto;
     }
 
     .footer-bottom {
@@ -1015,9 +1141,24 @@ button {
     }
 }
 
-/* Màn hình rất nhỏ: products về 1 cột */
-@media (max-width: 480px) {
-    .products-grid {
-        grid-template-columns: 1fr;
+/* =================================================================
+   13. HỖ TRỢ THÊM CHO MÀN HÌNH RẤT NHỎ (dưới 400px)
+================================================================= */
+@media (max-width: 400px) {
+    .categories-grid {
+        gap: 10px;
+    }
+
+    .category-card__icon {
+        width: 42px;
+        height: 42px;
+    }
+
+    .product-card__body {
+        padding: 12px;
+    }
+
+    .product-price__current {
+        font-size: 0.95rem;
     }
 }
