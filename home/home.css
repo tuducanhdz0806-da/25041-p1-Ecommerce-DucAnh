@@ -1,7 +1,4 @@
-/* =================================================================
-   home.css - Responsive với breakpoints 900px và 600px
-   THEO ĐÚNG YÊU CẦU: Products 900px→2 cột, 600px→1 cột
-================================================================= */
+/* home/home.css
 
 /* =================================================================
    1. RESET & BASE
@@ -886,12 +883,6 @@ button {
 
 /* =================================================================
    11. RESPONSIVE - BREAKPOINT 900px
-   =================================================================
-   Thay đổi:
-   - Header: chuyển thành hamburger menu
-   - Categories: 5 cột → 4 cột
-   - Products: 4 cột → 2 cột (THEO YÊU CẦU)
-   - Footer: 4 cột → 2 cột
 ================================================================= */
 @media (max-width: 900px) {
     /* === HEADER: HAMBURGER MENU === */
@@ -990,14 +981,6 @@ button {
 
 /* =================================================================
    12. RESPONSIVE - BREAKPOINT 600px
-   =================================================================
-   Thay đổi:
-   - Categories: 4 cột → 2 cột
-   - Products: 2 cột → 1 cột (THEO YÊU CẦU)
-   - Giá sản phẩm: chuyển thành column layout
-   - Nút action: column layout, nút icon full width
-   - Badge: giảm padding
-   - Footer: 2 cột → 1 cột
 ================================================================= */
 @media (max-width: 600px) {
     /* === CATEGORIES: 4 cột → 2 cột === */
