@@ -1,0 +1,51 @@
+<!-- login/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập — TechWorld PC</title>
+    <link rel="stylesheet" href="../home/home.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <header id="main-header"></header>
+
+    <main class="auth-page">
+        <div class="auth-box">
+            <h2 class="auth-title">Đăng nhập</h2>
+            <p class="auth-sub">Chào mừng trờ lại!</p>
+            <div id="error-msg" class="auth-error" style="display: none;"></div>
+            <div id="success-msg" class="auth-success" style="display: none;"></div>
+            <form id="login-form">
+                <div class="field">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="example@email.com">
+                    <span class="field-error" id="err-email"></span>
+                </div>
+
+                <div class="field">
+                    <label for="password">Mật khẩu</label>
+                    <input type="password" id="password" placeholder="Nhập mật khẩu">
+                    <span class="field-error" id="err-password"></span>
+                </div>
+
+                <button type="submit" class="btn btn--primary btn--block" id="login-btn">
+                    Đăng nhập
+                </button>
+            </form>
+
+            <p class="auth-switch">
+                Chưa có tài khoản?
+                <a href="../sign-up/index.html">Đăng ký ngay</a>
+            </p>
+        </div>
+    </main>
+
+    <footer id="main-footer"></footer>
+ 
+    <script src="../js/mock-data.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="login.js"></script>
+</body>
+</html>

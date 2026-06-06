@@ -1,6 +1,5 @@
 // js/common.js
-// File dùng chung cho toàn bộ website TechWorld PC.
-// Chứa các hàm tiện ích, render header/footer và nạp dữ liệu ban đầu.
+
 
 const basePath = '../';
 
@@ -43,9 +42,6 @@ function getGuestNavLinks() {
 
 /**
  * Render toàn bộ nội dung header vào phần tử có id="main-header".
- * - Hiển thị nav khác nhau tùy theo trạng thái đăng nhập.
- * - Tính và hiển thị số lượng sản phẩm trong giỏ hàng của user hiện tại.
- * - Gắn sự kiện: hamburger menu, đăng xuất, tìm kiếm.
  */
 function loadHeader() {
     const header = document.getElementById('main-header');
@@ -79,7 +75,6 @@ function loadHeader() {
                 <a href="${basePath}my-account" class="nav-link nav-link--account">
                     👤 ${currentUser.fullname}
                 </a>
-                <a href="#" id="logout-link" class="nav-link">Đăng xuất</a>
                 <a href="${basePath}cart" class="nav-link nav-link--cart">
                     🛒 Giỏ hàng ${cartBadge}
                 </a>
@@ -144,21 +139,6 @@ function loadHeader() {
                 toggleBtn.setAttribute('aria-expanded', false);
             }
         });
-    }
-
-    // --- Sự kiện: Đăng xuất ---
-    if (currentUserJson) {
-        const logoutLink = document.getElementById('logout-link');
-        if (logoutLink) {
-            logoutLink.addEventListener('click', function (e) {
-                e.preventDefault();
-                if (confirm('Bạn có chắc chắn muốn đăng xuất?')) {
-                    localStorage.removeItem('currentUser');
-                    alert('Đăng xuất thành công!');
-                    location.reload();
-                }
-            });
-        }
     }
 
     // --- Sự kiện: Tìm kiếm ---
