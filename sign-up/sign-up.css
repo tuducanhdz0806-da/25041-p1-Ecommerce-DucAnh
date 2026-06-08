@@ -1,0 +1,134 @@
+/* login.css & sign-up.css — dùng chung, copy vào cả 2 thư mục */
+
+.auth-page {
+    min-height: calc(100vh - 64px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8fafc;
+    padding: 40px 16px;
+}
+
+.auth-box {
+    width: 100%;
+    max-width: 420px;
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 40px 36px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+
+.auth-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 4px;
+}
+
+.auth-sub {
+    font-size: 0.875rem;
+    color: #64748b;
+    margin-bottom: 28px;
+}
+
+/* Alert */
+.auth-error {
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.875rem;
+    margin-bottom: 16px;
+}
+
+.auth-success {
+    background: #f0fdf4;
+    color: #16a34a;
+    border: 1px solid #bbf7d0;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.875rem;
+    margin-bottom: 16px;
+}
+
+/* Fields */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.field label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #374151;
+}
+
+.field input {
+    width: 100%;
+    padding: 10px 14px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    color: #1e293b;
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.field input:focus {
+    border-color: #1e40af;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(30,64,175,0.1);
+}
+
+.field input::placeholder {
+    color: #94a3b8;
+}
+
+.field-error {
+    font-size: 0.78rem;
+    color: #ef4444;
+    display: none;
+}
+
+.field input.is-error {
+    border-color: #ef4444;
+    background: #fff5f5;
+}
+
+/* Nút submit */
+.btn--block {
+    width: 100%;
+    margin-top: 8px;
+    height: 44px;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+/* Link chuyển trang */
+.auth-switch {
+    text-align: center;
+    font-size: 0.875rem;
+    color: #64748b;
+    margin-top: 20px;
+}
+
+.auth-switch a {
+    color: #1e40af;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.auth-switch a:hover {
+    text-decoration: underline;
+}
