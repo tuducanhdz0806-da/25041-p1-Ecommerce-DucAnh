@@ -75,7 +75,6 @@ function loadHeader() {
                 <a href="${basePath}my-account" class="nav-link nav-link--account">
                     👤 ${currentUser.fullname}
                 </a>
-                // XÓA dòng này
                 <a href="#" id="logout-link" class="nav-link">Đăng xuất</a>
                 <a href="${basePath}cart" class="nav-link nav-link--cart">
                     🛒 Giỏ hàng ${cartBadge}
