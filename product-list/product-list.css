@@ -1,27 +1,27 @@
 /* product-list/product-list.css
 
+
 /* =================================================================
-   1. CONTAINER (TIÊU ĐỀ TRANG) 
+   1. CONTAINER (TIEU DE TRANG)
 ================================================================= */
 .container {
-    width: 100%;
-    max-width: 1280px;
-    margin-inline: auto;
-    padding-inline: clamp(1rem, 4vw, 2.5rem);
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 .container h1 {
-    text-align: center;
-    margin-bottom: 10px;
-    color: #1e40af;
-    font-size: clamp(1.5rem, 4vw, 2.5rem);
+  text-align: center;
+  margin-bottom: 10px;
+  color: #1e40af;
+  font-size: 2.5rem;
 }
 
 #page-subtitle {
-    text-align: center;
-    color: #64748b;
-    margin-bottom: 30px;
-    font-size: 1rem;
+  text-align: center;
+  color: #666;
+  margin-bottom: 30px;
+  font-size: 1.1rem;
 }
 
 /* =================================================================
@@ -40,12 +40,9 @@
     gap: 12px;
     font-size: 0.875rem;
     color: #1e293b;
-    flex-wrap: wrap;
 }
 
-.search-banner__inner strong { 
-    color: #1e40af; 
-}
+.search-banner__inner strong { color: #1e40af; }
 
 .active-filters {
     background-color: #ffffff;
@@ -103,10 +100,7 @@
     transition: background 0.2s;
 }
 
-.filter-tag__remove:hover { 
-    background: #1e40af; 
-    color: #fff; 
-}
+.filter-tag__remove:hover { background: #1e40af; color: #fff; }
 
 /* =================================================================
    3. LAYOUT CHÍNH (Sidebar + Grid)
@@ -117,7 +111,7 @@
 
 .pl-body__inner {
     display: grid;
-    grid-template-columns: 260px 1fr;
+    grid-template-columns: 240px 1fr;
     gap: 32px;
     align-items: start;
 }
@@ -128,8 +122,9 @@
 .filter-sidebar {
     background-color: #ffffff;
     border: 1.5px solid #e2e8f0;
-    border-radius: 16px;
+    border-radius: 12px;
     overflow: hidden;
+    /* Dính khi scroll */
     position: sticky;
     top: 80px;
 }
@@ -158,9 +153,7 @@
     transition: color 0.2s;
 }
 
-.filter-sidebar__toggle:hover { 
-    color: #1e40af; 
-}
+.filter-sidebar__toggle:hover { color: #1e40af; }
 
 .filter-sidebar__body {
     padding: 20px;
@@ -198,9 +191,7 @@
     gap: 8px;
 }
 
-.filter-group__item { 
-    list-style: none; 
-}
+.filter-group__item { list-style: none; }
 
 /* ── Checkbox tùy chỉnh ── */
 .filter-checkbox {
@@ -248,10 +239,7 @@
     transition: color 0.2s;
 }
 
-.filter-checkbox:hover .filter-checkbox__label { 
-    color: #1e293b; 
-}
-
+.filter-checkbox:hover .filter-checkbox__label { color: #1e293b; }
 .filter-checkbox input:checked ~ .filter-checkbox__label {
     color: #1e293b;
     font-weight: 500;
@@ -263,7 +251,6 @@
     align-items: center;
     gap: 8px;
     margin-bottom: 12px;
-    flex-wrap: wrap;
 }
 
 .filter-price__input {
@@ -279,9 +266,7 @@
     min-width: 0;
 }
 
-.filter-price__input:focus { 
-    border-color: #1e40af; 
-}
+.filter-price__input:focus { border-color: #1e40af; }
 
 .filter-price__sep {
     color: #94a3b8;
@@ -337,9 +322,8 @@
     padding: 12px 16px;
     background-color: #ffffff;
     border: 1.5px solid #e2e8f0;
-    border-radius: 12px;
+    border-radius: 10px;
     gap: 12px;
-    flex-wrap: wrap;
 }
 
 .pl-toolbar__count {
@@ -363,7 +347,7 @@
 .pl-toolbar__sort select {
     border: 1.5px solid #e2e8f0;
     border-radius: 8px;
-    padding: 8px 28px 8px 12px;
+    padding: 6px 28px 6px 10px;
     font-family: inherit;
     font-size: 0.875rem;
     color: #1e293b;
@@ -373,13 +357,11 @@
     appearance: none;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
-    background-position: right 10px center;
+    background-position: right 8px center;
     transition: border-color 0.2s;
 }
 
-.pl-toolbar__sort select:focus { 
-    border-color: #1e40af; 
-}
+.pl-toolbar__sort select:focus { border-color: #1e40af; }
 
 /* ── Loading ── */
 .pl-loading {
@@ -402,9 +384,7 @@
     animation: spin 0.7s linear infinite;
 }
 
-@keyframes spin { 
-    to { transform: rotate(360deg); } 
-}
+@keyframes spin { to { transform: rotate(360deg); } }
 
 /* ── Grid sản phẩm ── */
 .pl-grid {
@@ -425,9 +405,7 @@
     text-align: center;
 }
 
-.pl-empty__icon { 
-    font-size: 3rem; 
-}
+.pl-empty__icon { font-size: 3rem; }
 
 .pl-empty__title {
     font-size: 1.1rem;
@@ -450,7 +428,6 @@
     justify-content: center;
     gap: 6px;
     padding-top: 8px;
-    flex-wrap: wrap;
 }
 
 .pl-page-btn {
@@ -494,356 +471,42 @@
     padding: 0 4px;
 }
 
-.product-card {
-    display: flex;
-    flex-direction: column;
-    background-color: #ffffff;
-    border: 1.5px solid #e2e8f0;
-    border-radius: 16px;
-    overflow: hidden;
-    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
-    height: 100%;
-}
-
-.product-card:hover {
-    border-color: #1e40af;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-    transform: translateY(-4px);
-}
-
-.product-card__img-wrap {
-    display: block;
-    position: relative;
-    aspect-ratio: 4 / 3;
-    background-color: #f8fafc;
-    overflow: hidden;
-}
-
-.product-card__img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s;
-}
-
-.product-card:hover .product-card__img {
-    transform: scale(1.05);
-}
-
-.product-card__body {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    padding: 16px;
-    gap: 8px;
-}
-
-.product-card__name {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #1e293b;
-    line-height: 1.4;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-decoration: none;
-    transition: color 0.3s;
-    min-height: 2.8em;
-}
-
-.product-card__name:hover {
-    color: #1e40af;
-}
-
-.product-card__desc {
-    font-size: 0.8rem;
-    color: #64748b;
-    line-height: 1.5;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-/* Giá sản phẩm */
-.product-price {
-    display: flex;
-    align-items: baseline;
-    flex-wrap: nowrap;
-    gap: 8px;
-}
-
-.product-price__current {
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: #1e40af;
-    letter-spacing: -0.01em;
-    white-space: nowrap;
-    flex-shrink: 0;
-}
-
-.product-price__original {
-    font-size: 0.75rem;
-    color: #94a3b8;
-    text-decoration: line-through;
-    white-space: nowrap;
-    flex-shrink: 0;
-}
-
-/* Badge */
-.product-badge {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.03em;
-    padding: 3px 10px;
-    border-radius: 9999px;
-    z-index: 1;
-    white-space: nowrap;
-}
-
-.product-badge--sale {
-    background-color: #dc2626;
-    color: #ffffff;
-}
-
-.product-badge--hot {
-    background-color: #ea580c;
-    color: #ffffff;
-}
-
-.product-badge--featured {
-    background-color: #1e40af;
-    color: #ffffff;
-}
-
-/* Stock indicator */
-.product-stock {
-    display: inline-block;
-    font-size: 0.7rem;
-    font-weight: 500;
-    padding: 2px 8px;
-    border-radius: 9999px;
-    width: fit-content;
-    white-space: nowrap;
-}
-
-.product-stock--in {
-    background-color: #dcfce7;
-    color: #16a34a;
-}
-
-.product-stock--low {
-    background-color: #fef9c3;
-    color: #d97706;
-}
-
-.product-stock--out {
-    background-color: #fee2e2;
-    color: #dc2626;
-}
-
-/* Actions buttons */
-.product-card__actions {
-    display: flex;
-    gap: 8px;
-    margin-top: auto;
-    padding-top: 12px;
-    border-top: 1px solid #e2e8f0;
-}
-
-.product-card__actions .btn--primary {
-    flex: 1;
-}
-
-.btn--icon {
-    padding: 8px;
-    min-width: 36px;
-    min-height: 36px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
-}
-
 /* =================================================================
-   7. RESPONSIVE - BREAKPOINT 900px
+   7. RESPONSIVE
 ================================================================= */
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
     .pl-body__inner {
-        grid-template-columns: 220px 1fr;
-        gap: 24px;
+        grid-template-columns: 200px 1fr;
+        gap: 20px;
     }
 
     .pl-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .pl-body__inner {
+        grid-template-columns: 1fr;
     }
 
-    .pl-toolbar {
-        flex-wrap: wrap;
-        justify-content: center;
+    /* Sidebar nằm trên, không sticky trên mobile */
+    .filter-sidebar {
+        position: static;
+    }
+
+    .pl-grid {
+        grid-template-columns: repeat(2, 1fr);
         gap: 12px;
     }
 
-    .filter-sidebar__body {
-        padding: 16px;
-    }
-}
-
-/* =================================================================
-   8. RESPONSIVE - BREAKPOINT 720px
-================================================================= */
-@media (max-width: 720px) {
-    .pl-body__inner {
-        grid-template-columns: 1fr;
-        gap: 24px;
-    }
-
-    .filter-sidebar {
-        position: static;
-        width: 100%;
-    }
-
-    /* GIỮ NGUYÊN form filter cũ */
-    .filter-group__list {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-    }
-
-    .filter-price {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        margin-bottom: 12px;
-        flex-wrap: wrap;
-    }
-
-    .filter-price__presets {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-    }
-
-    .filter-price__preset {
-        text-align: left;
-    }
-
-    .filter-sidebar__actions {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-    }
-
-    .filter-sidebar__actions .btn {
-        width: 100%;
-    }
-
-    .pl-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
-    }
-
     .pl-toolbar {
         flex-wrap: wrap;
-        justify-content: space-between;
     }
 }
 
-/* =================================================================
-   9. RESPONSIVE - BREAKPOINT 600px
-================================================================= */
-@media (max-width: 600px) {
+@media (max-width: 480px) {
     .pl-grid {
         grid-template-columns: 1fr;
-        gap: 16px;
-        max-width: 400px;
-        margin-inline: auto;
-    }
-
-    .pl-toolbar {
-        flex-direction: column;
-        align-items: stretch;
-        text-align: center;
-    }
-
-    .pl-toolbar__sort {
-        justify-content: center;
-    }
-
-    .pl-pagination {
-        gap: 4px;
-    }
-
-    .pl-page-btn {
-        min-width: 32px;
-        height: 32px;
-        font-size: 0.75rem;
-        padding: 0 8px;
-    }
-
-    .pl-empty {
-        padding: 48px 16px;
-    }
-
-    .pl-empty__icon {
-        font-size: 2.5rem;
-    }
-
-    .active-filters__inner {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .filter-tags {
-        width: 100%;
-    }
-
-    /* Giá sản phẩm */
-    .product-price {
-        flex-wrap: wrap;
-        gap: 4px;
-    }
-    
-    .product-price__current {
-        white-space: normal;
-        flex-shrink: 1;
-    }
-    
-    .product-price__original {
-        white-space: normal;
-        flex-shrink: 1;
-    }
-
-    /* Badge */
-    .product-badge {
-        font-size: 0.6rem;
-        padding: 2px 8px;
-        top: 8px;
-        left: 8px;
-    }
-
-    /* Nút action */
-    .product-card__actions {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .product-card__actions .btn--primary {
-        width: 100%;
-    }
-
-    .btn--icon {
-        width: 100%;
-        padding: 10px;
-        min-height: 44px;
     }
 }
-
-
-
-
