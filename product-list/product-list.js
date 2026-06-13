@@ -242,7 +242,7 @@ function buildProductCard(product) {
 
     // ── Đường dẫn ──
     const imgSrc    = product.image ? (basePath + product.image) : '';
-    const detailUrl = `${basePath}product-detail/product-detail.html?id=${product.id}`;
+    const detailUrl = `${basePath}product-detail/index.html?id=${product.id}`;
 
     return `
         <article class="product-card" data-product-id="${product.id}">
