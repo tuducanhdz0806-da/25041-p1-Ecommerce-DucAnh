@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết sản phẩm - TechWorld PC</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../home/home.css">
+    <link rel="stylesheet" href="product-detail.css">
+</head>
+<body>
+    <header id="main-header" role="banner"></header>
+
+    <main id="main-content">
+        <div class="container">
+            <nav class="pd-breadcrumb" aria-label="Breadcrumb">
+                <a href="../home">Trang chủ</a>
+                <span>,</span>
+                <a href="../product-list">Sản phẩm</a>
+                <span id="breadcrumb-product-name">Đang tải...</span>
+            </nav>
+
+            <div id="product-detail-container"></div>
+        </div>
+    </main>
+
+    <footer id="main-footer" role="contentinfo"></footer>
+
+    <script src="../js/mock-data.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="product-detail.js"></script>
+</body>
+</html>
