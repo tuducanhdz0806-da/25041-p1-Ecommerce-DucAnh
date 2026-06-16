@@ -10,11 +10,12 @@
 }
 
 .cart-page-header__title {
-    font-size: 1.7rem;
+    font-size: 2.5rem;
     font-weight: 700;
-    color: #1e293b;
+    color: #1e40af;
     letter-spacing: -0.02em;
     margin-bottom: 4px;
+    text-align: center;
 }
 
 .cart-page-header__sub {
