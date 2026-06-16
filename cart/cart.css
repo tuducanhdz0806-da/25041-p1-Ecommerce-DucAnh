@@ -1,4 +1,4 @@
-/* cart/cart.css  */
+/* cart/cart.css ― Kế thừa home.css */
 
 /* =================================================================
    1. TIÊU ĐỀ TRANG
@@ -8,23 +8,20 @@
     border-bottom: 1px solid #e2e8f0;
     margin-bottom: 32px;
 }
-
 .cart-page-header__title {
-    font-size: 2.5rem;
+    font-size: 1.7rem;
     font-weight: 700;
-    color: #1e40af;
+    color: #1e293b;
     letter-spacing: -0.02em;
     margin-bottom: 4px;
-    text-align: center;
 }
-
 .cart-page-header__sub {
     font-size: 0.875rem;
     color: #64748b;
 }
 
 /* =================================================================
-   2. LAYOUT 2 COT
+   2. LAYOUT 2 CỘT
 ================================================================= */
 .cart-layout {
     display: grid;
@@ -35,19 +32,70 @@
 }
 
 /* =================================================================
-   3. Danh sach san pham
+   3. CHECKBOX TÙY CHỈNH
+================================================================= */
+.cart-checkbox {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    line-height: 1;
+}
+
+/* Ẩn checkbox gốc của trình duyệt */
+.cart-checkbox input[type="checkbox"] {
+    display: none;
+}
+
+/* Hộp checkbox tùy chỉnh */
+.cart-checkbox__box {
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 4px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+/* Khi được tích → nền xanh */
+.cart-checkbox input:checked + .cart-checkbox__box {
+    background-color: #1e40af;
+    border-color: #1e40af;
+}
+
+/* Dấu tích bên trong */
+.cart-checkbox input:checked + .cart-checkbox__box::after {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 5px;
+    border-left: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    transform: rotate(-45deg) translateY(-1px);
+}
+
+/* Hover */
+.cart-checkbox:hover .cart-checkbox__box {
+    border-color: #1e40af;
+}
+
+/* =================================================================
+   4. DANH SÁCH SẢN PHẨM
 ================================================================= */
 .cart-items {
     display: flex;
     flex-direction: column;
-    gap: 0;
 }
 
-/* Header hang tieu de */
+/* Header hàng tiêu đề — thêm cột checkbox */
 .cart-items__header {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr 40px;
+    grid-template-columns: 36px 2fr 1fr 1fr 1fr 40px;
     gap: 12px;
+    align-items: center;
     padding: 10px 16px;
     background-color: #f8fafc;
     border: 1.5px solid #e2e8f0;
@@ -65,10 +113,10 @@
     text-align: center;
 }
 
-/* Moi dong san oham */
+/* Mỗi dòng sản phẩm — thêm cột checkbox */
 .cart-item {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr 40px;
+    grid-template-columns: 36px 2fr 1fr 1fr 1fr 40px;
     gap: 12px;
     align-items: center;
     padding: 16px;
@@ -86,7 +134,19 @@
     background-color: #fafafa;
 }
 
-/* Anh + ten san pham */
+/* Highlight dòng đang được tích */
+.cart-item:has(.item-checkbox:checked) {
+    background-color: #f0f7ff;
+}
+
+/* Cột checkbox trong dòng sản phẩm */
+.cart-item__check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Ảnh + tên sản phẩm */
 .cart-item__product {
     display: flex;
     align-items: center;
@@ -94,9 +154,7 @@
     min-width: 0;
 }
 
-.cart-item__img-link {
-    flex-shrink: 0;
-}
+.cart-item__img-link { flex-shrink: 0; }
 
 .cart-item__img {
     width: 64px;
@@ -120,31 +178,27 @@
     overflow: hidden;
     transition: color 0.2s;
 }
+.cart-item__name:hover { color: #1e40af; }
 
-.cart-item__name:hover {
-    color: #1e40af;
-}
-
-/* Don gia */
+/* Đơn giá */
 .cart-item__price {
     font-size: 0.875rem;
     color: #475569;
     text-align: center;
 }
 
-/* Thanh tien */
+/* Thành tiền */
 .cart-item__total {
     text-align: center;
     font-size: 0.9rem;
     color: #1e40af;
 }
 
-/* Nut xoa */
+/* Nút xóa */
 .cart-item__remove {
     display: flex;
     justify-content: center;
 }
-
 .cart-item__remove-btn {
     background: none;
     border: none;
@@ -155,13 +209,12 @@
     transition: background-color 0.2s, transform 0.2s;
     line-height: 1;
 }
-
 .cart-item__remove-btn:hover {
     background-color: #fee2e2;
     transform: scale(1.15);
 }
 
-/* Link quay lai trang san pham */
+/* Link quay lại */
 .cart-back-link {
     display: inline-flex;
     align-items: center;
@@ -173,19 +226,12 @@
     margin-top: 20px;
     transition: gap 0.2s;
 }
-
-.cart-back-link:hover {
-    gap: 10px;
-    text-decoration: underline;
-}
+.cart-back-link:hover { gap: 10px; text-decoration: underline; }
 
 /* =================================================================
-   4. Dieu chinh so luong
+   5. ĐIỀU KHIỂN SỐ LƯỢNG
 ================================================================= */
-.cart-item__qty {
-    display: flex;
-    justify-content: center;
-}
+.cart-item__qty { display: flex; justify-content: center; }
 
 .qty-control {
     display: flex;
@@ -194,7 +240,6 @@
     border-radius: 8px;
     overflow: hidden;
 }
-
 .qty-control__btn {
     width: 30px;
     height: 32px;
@@ -210,11 +255,7 @@
     flex-shrink: 0;
     transition: background-color 0.2s, color 0.2s;
 }
-
-.qty-control__btn:hover {
-    background-color: #1e40af;
-    color: #ffffff;
-}
+.qty-control__btn:hover { background-color: #1e40af; color: #ffffff; }
 
 .qty-control__input {
     width: 40px;
@@ -231,14 +272,11 @@
     outline: none;
     -moz-appearance: textfield;
 }
-
 .qty-control__input::-webkit-outer-spin-button,
-.qty-control__input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-}
+.qty-control__input::-webkit-inner-spin-button { -webkit-appearance: none; }
 
 /* =================================================================
-   5. Tom tat don hang
+   6. TÓM TẮT ĐƠN HÀNG
 ================================================================= */
 .cart-summary {
     background-color: #ffffff;
@@ -251,14 +289,11 @@
     flex-direction: column;
     gap: 14px;
 }
-
 .cart-summary__title {
     font-size: 1rem;
     font-weight: 700;
     color: #1e293b;
-    margin-bottom: 4px;
 }
-
 .cart-summary__row {
     display: flex;
     justify-content: space-between;
@@ -266,70 +301,75 @@
     font-size: 0.875rem;
     color: #475569;
 }
-
 .cart-summary__row--total {
     font-size: 1rem;
     color: #1e293b;
 }
-
 .cart-summary__total-price {
     font-size: 1.3rem;
     font-weight: 800;
     color: #1e40af;
 }
-
 .cart-summary__divider {
     height: 1px;
     background-color: #e2e8f0;
-    margin: 2px 0;
 }
-
-.free-ship {
-    color: #16a34a;
-    font-weight: 600;
+.cart-summary__hint {
+    font-size: 0.78rem;
+    color: #94a3b8;
+    text-align: center;
+    margin: 0;
 }
+.free-ship { color: #16a34a; font-weight: 600; }
 
-/* Banner mien phi ship */
+/* Banner miễn phí ship */
 .free-ship-banner {
     display: flex;
     align-items: center;
     gap: 10px;
-    background-color: #f0fdf4;
-    border: 1px solid #bbf7d0;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
     border-radius: 8px;
     padding: 10px 12px;
     font-size: 0.8rem;
     color: #374151;
     line-height: 1.5;
+    transition: background-color 0.3s, border-color 0.3s;
 }
-
 .free-ship-banner--ok {
     background-color: #f0fdf4;
     border-color: #86efac;
 }
+.free-ship-banner__icon { font-size: 1.1rem; flex-shrink: 0; }
 
-.free-ship-banner__icon {
-    font-size: 1.1rem;
-    flex-shrink: 0;
-}
-
-/* Nut thanh toan*/
+/* Nút thanh toán */
 .cart-checkout-btn {
     height: 46px;
     font-size: 0.95rem;
     font-weight: 700;
-    letter-spacing: 0.01em;
-    margin-top: 4px;
     transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
 }
-
 .cart-checkout-btn:hover {
     box-shadow: 0 4px 14px rgba(30, 64, 175, 0.35);
     transform: translateY(-1px);
 }
 
+/* Nút xóa hàng loạt */
+.cart-delete-btn {
+    height: 40px;
+    font-size: 0.875rem;
+    color: #dc2626;
+    border-color: #fecaca;
+    background-color: #fff5f5;
+}
+.cart-delete-btn:hover {
+    background-color: #fee2e2;
+    border-color: #dc2626;
+    color: #dc2626;
+}
+
 /* =================================================================
-   6. EMPTY STATE & LOGIN REQUIRED
+   7. EMPTY STATE & LOGIN REQUIRED
 ================================================================= */
 .cart-empty {
     display: flex;
@@ -340,18 +380,8 @@
     padding: 80px 24px;
     gap: 12px;
 }
-
-.cart-empty__icon {
-    font-size: 4rem;
-    line-height: 1;
-}
-
-.cart-empty__title {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: #1e293b;
-}
-
+.cart-empty__icon { font-size: 4rem; line-height: 1; }
+.cart-empty__title { font-size: 1.3rem; font-weight: 700; color: #1e293b; }
 .cart-empty__sub {
     font-size: 0.9rem;
     color: #64748b;
@@ -360,54 +390,42 @@
 }
 
 /* =================================================================
-   7. RESPONSIVE
+   8. RESPONSIVE
 ================================================================= */
 @media (max-width: 1024px) {
-    .cart-layout {
-        grid-template-columns: 1fr 280px;
-        gap: 24px;
-    }
+    .cart-layout { grid-template-columns: 1fr 280px; gap: 24px; }
 }
 
 @media (max-width: 900px) {
-    /* 1 cot tren mobile */
-    .cart-layout {
-        grid-template-columns: 1fr;
-    }
+    .cart-layout { grid-template-columns: 1fr; }
+    .cart-summary { position: static; }
 
-    .cart-summary {
-        position: static;
-    }
+    /* Ẩn header bảng, chuyển từng dòng về dạng card */
+    .cart-items__header { display: none; }
 
-    /* Header bang an tren mobile */
-    .cart-items__header {
-        display: none;
-    }
-
-    /* Moi dong dung 1 cot */
     .cart-item {
-        grid-template-columns: 1fr;
+        grid-template-columns: 36px 1fr;
+        grid-template-rows: auto auto auto;
         gap: 10px;
         padding: 16px;
         border-radius: 10px;
-        border: 1.5px solid #e2e8f0;
+        border: 1.5px solid #e2e8f0 !important;
         margin-bottom: 12px;
+        border-top: 1.5px solid #e2e8f0 !important;
     }
 
-    .cart-item:last-child {
-        border-radius: 10px;
-    }
+    /* Checkbox chiếm cột trái, sản phẩm chiếm cột phải */
+    .cart-item__check   { grid-column: 1; grid-row: 1 / 3; align-self: center; }
+    .cart-item__product { grid-column: 2; grid-row: 1; }
 
-    .cart-item__price::before    { content: attr(data-label) ': '; font-weight: 600; color: #374151; }
-    .cart-item__total::before    { content: attr(data-label) ': '; font-weight: 600; color: #374151; }
+    /* Giá, số lượng, thành tiền xếp ngang hàng 2 */
     .cart-item__price,
-    .cart-item__total { text-align: left; }
+    .cart-item__qty,
+    .cart-item__total { grid-column: 2; text-align: left; }
 
-    .cart-item__qty {
-        justify-content: flex-start;
-    }
+    .cart-item__price::before  { content: 'Đơn giá: '; font-weight: 600; color: #374151; }
+    .cart-item__total::before  { content: 'Thành tiền: '; font-weight: 600; color: #374151; }
 
-    .cart-item__remove {
-        justify-content: flex-start;
-    }
+    .cart-item__remove { grid-column: 2; justify-content: flex-start; }
 }
+
