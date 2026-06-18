@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh toán — TechWorld PC</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/home/home.css">
+    <link rel="stylesheet" href="/checkout/checkout.css">
+</head>
+<body>
+    <header id="main-header" role="banner"></header>
+
+    <main id="main-content">
+        <div class="container">
+ 
+            <!-- Tiêu đề trang -->
+            <div class="checkout-page-header">
+                <h1 class="checkout-page-header__title">Thanh toán</h1>
+                <p class="checkout-page-header__sub">Vui lòng kiểm tra đơn hàng và điền thông tin giao hàng</p>
+            </div>
+ 
+            <div class="checkout-layout">
+ 
+                <!-- CỘT TRÁI: Form thông tin -->
+                <div class="checkout-form-col">
+ 
+                    <!-- Thông tin giao hàng -->
+                    <div class="checkout-card">
+                        <h2 class="checkout-card__title">Thông tin giao hàng</h2>
+ 
+                        <form id="checkout-form" novalidate>
+ 
+                            <div class="field">
+                                <label for="fullname">Họ tên người nhận</label>
+                                <input type="text" id="fullname" placeholder="Nguyễn Văn A">
+                                <span class="field-error" id="err-fullname"></span>
+                            </div>
+ 
+                            <div class="field">
+                                <label for="phone">Số điện thoại</label>
+                                <input type="tel" id="phone" placeholder="0912 345 678">
+                                <span class="field-error" id="err-phone"></span>
+                            </div>
+ 
+                            <div class="field">
+                                <label for="address">Địa chỉ giao hàng</label>
+                                <textarea id="address" rows="3" placeholder="Số nhà, đường, phường/xã, quận/huyện, tỉnh/thành"></textarea>
+                                <span class="field-error" id="err-address"></span>
+                            </div>
+ 
+                            <div class="field">
+                                <label for="note">
+                                    Ghi chú
+                                    <span class="field-optional">(tùy chọn)</span>
+                                </label>
+                                <textarea id="note" rows="2" placeholder="Ví dụ: giao giờ hành chính, gọi trước khi giao..."></textarea>
+                            </div>
+ 
+                        </form>
+                    </div>
+ 
+                    <!-- Phương thức thanh toán -->
+                    <div class="checkout-card">
+                        <h2 class="checkout-card__title">Phương thức thanh toán</h2>
+ 
+                        <div class="payment-options">
+ 
+                            <label class="payment-option" id="payment-option-cod">
+                                <input type="radio" name="payment-method" value="cod" id="payment-cod" checked>
+                                <span class="payment-option__radio"></span>
+                                <span class="payment-option__content">
+                                    <span class="payment-option__title">💵 Thanh toán khi nhận hàng (COD)</span>
+                                    <span class="payment-option__desc">Thanh toán bằng tiền mặt khi nhận được hàng</span>
+                                </span>
+                            </label>
+ 
+                            <label class="payment-option" id="payment-option-bank">
+                                <input type="radio" name="payment-method" value="bank" id="payment-bank">
+                                <span class="payment-option__radio"></span>
+                                <span class="payment-option__content">
+                                    <span class="payment-option__title">🏦 Chuyển khoản ngân hàng</span>
+                                    <span class="payment-option__desc">Chuyển khoản trước, xác nhận đơn sau khi nhận tiền</span>
+                                </span>
+                            </label>
+ 
+                        </div>
+ 
+                        <!-- Thông tin chuyển khoản — chỉ hiện khi chọn "bank" -->
+                        <div id="bank-info" class="bank-info" style="display:none;">
+                            <h3 class="bank-info__title">Thông tin chuyển khoản</h3>
+                            <ul class="bank-info__list">
+                                <li><strong>Ngân hàng:</strong> Vietcombank</li>
+                                <li><strong>Số tài khoản:</strong> 1234567890</li>
+                                <li><strong>Chủ tài khoản:</strong> CÔNG TY TNHH TECHWORLD PC</li>
+                                <li><strong>Chi nhánh:</strong> TP. Hà Nội</li>
+                                <li><strong>Nội dung CK:</strong> Thanh toan [Họ tên] [SĐT]</li>
+                            </ul>
+                        </div>
+                    </div>
+ 
+                </div>
+ 
+                <!-- CỘT PHẢI: Tóm tắt đơn hàng -->
+                <div class="checkout-summary-col">
+                    <div class="checkout-summary">
+                        <h2 class="checkout-summary__title">Tóm tắt đơn hàng</h2>
+ 
+                        <!-- Danh sách sản phẩm -->
+                        <div id="checkout-items" class="checkout-summary__items"></div>
+ 
+                        <div class="checkout-summary__divider"></div>
+ 
+                        <div class="checkout-summary__row">
+                            <span>Tạm tính (<span id="checkout-total-items">0</span> sản phẩm)</span>
+                            <span id="checkout-subtotal">0 ₫</span>
+                        </div>
+                        <div class="checkout-summary__row">
+                            <span>Phí vận chuyển</span>
+                            <span id="checkout-shipping">0 ₫</span>
+                        </div>
+ 
+                        <div class="checkout-summary__divider"></div>
+ 
+                        <div class="checkout-summary__row checkout-summary__row--total">
+                            <strong>Tổng cộng</strong>
+                            <strong id="checkout-total" class="checkout-summary__total-price">0 ₫</strong>
+                        </div>
+ 
+                        <button id="complete-order-btn" class="btn btn--primary btn--block checkout-submit-btn">
+                            Xác nhận đặt hàng
+                        </button>
+ 
+                        <a href="../cart/cart.html" class="checkout-back-link">← Quay lại giỏ hàng</a>
+                    </div>
+                </div>
+ 
+            </div>
+        </div>
+    </main>
+
+    <footer id="main-footer" role="contentinfo"></footer>
+    <script src="/js/mock-data.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/checkout/checkout.js"></script>
+</body>
+</html>
