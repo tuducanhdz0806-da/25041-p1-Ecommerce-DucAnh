@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặt hàng thành công — TechWorld PC</title>
+ 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/home/home.css">
+    <link rel="stylesheet" href="/order-confirmation/order-confirmation.css">
+</head>
+<body>
+    <header id="main-header" role="banner"></header>
+ 
+    <main id="main-content">
+        <div class="container">
+            <div class="oc-wrapper">
+ 
+                <!-- Khối thông báo thành công -->
+                <div class="oc-success">
+                    <div class="oc-success__icon">
+                        <svg viewBox="0 0 52 52" width="56" height="56">
+                            <circle cx="26" cy="26" r="25" fill="none" stroke="#1e40af" stroke-width="2"/>
+                            <path fill="none" stroke="#1e40af" stroke-width="3"
+                                  stroke-linecap="round" stroke-linejoin="round"
+                                  d="M14 27l7 7 17-17"/>
+                        </svg>
+                    </div>
+                    <h1 class="oc-success__title">Đặt hàng thành công!</h1>
+                    <p class="oc-success__order-id">
+                        Mã đơn hàng: <strong id="order-id">—</strong>
+                    </p>
+                    <p class="oc-success__thanks">
+                        Cảm ơn bạn đã tin tưởng TechWorld PC. Đơn hàng của bạn đang được xử lý.
+                    </p>
+                </div>
+ 
+                <!-- Khung chi tiết đơn hàng -->
+                <div class="oc-details">
+ 
+                    <!-- Thông tin người nhận -->
+                    <section class="oc-section">
+                        <h2 class="oc-section__title">Thông tin người nhận</h2>
+                        <div class="oc-info-row">
+                            <span class="oc-info-row__label">Họ tên</span>
+                            <span id="recipient-name" class="oc-info-row__value">—</span>
+                        </div>
+                        <div class="oc-info-row">
+                            <span class="oc-info-row__label">Số điện thoại</span>
+                            <span id="recipient-phone" class="oc-info-row__value">—</span>
+                        </div>
+                        <div class="oc-info-row">
+                            <span class="oc-info-row__label">Địa chỉ</span>
+                            <span id="recipient-address" class="oc-info-row__value">—</span>
+                        </div>
+                        <div class="oc-info-row" id="note-row" style="display:none;">
+                            <span class="oc-info-row__label">Ghi chú</span>
+                            <span id="recipient-note" class="oc-info-row__value">—</span>
+                        </div>
+                    </section>
+ 
+                    <!-- Phương thức thanh toán -->
+                    <section class="oc-section">
+                        <h2 class="oc-section__title">Phương thức thanh toán</h2>
+                        <div class="oc-info-row">
+                            <span class="oc-info-row__label">Hình thức</span>
+                            <span id="payment-method" class="oc-info-row__value">—</span>
+                        </div>
+                        <div id="bank-transfer-info" class="oc-bank-info" style="display:none;">
+                            <ul class="oc-bank-info__list">
+                                <li><strong>Ngân hàng:</strong> Vietcombank</li>
+                                <li><strong>Số tài khoản:</strong> 1234567890</li>
+                                <li><strong>Chủ tài khoản:</strong> CÔNG TY TNHH TECHWORLD PC</li>
+                                <li><strong>Nội dung CK:</strong> <span id="transfer-content">—</span></li>
+                            </ul>
+                        </div>
+                    </section>
+ 
+                    <!-- Sản phẩm đã đặt -->
+                    <section class="oc-section">
+                        <h2 class="oc-section__title">Sản phẩm đã đặt</h2>
+                        <div id="order-items-list" class="oc-items"></div>
+                    </section>
+ 
+                    <!-- Tổng tiền -->
+                    <section class="oc-section oc-section--total">
+                        <div class="oc-total-row">
+                            <span>Tạm tính</span>
+                            <span id="subtotal">0 ₫</span>
+                        </div>
+                        <div class="oc-total-row">
+                            <span>Phí vận chuyển</span>
+                            <span id="shipping-cost">0 ₫</span>
+                        </div>
+                        <div class="oc-total-row oc-total-row--final">
+                            <strong>Tổng cộng</strong>
+                            <strong id="total-amount">0 ₫</strong>
+                        </div>
+                    </section>
+ 
+                </div>
+ 
+                <!-- Nút điều hướng -->
+                <div class="oc-actions">
+                    <a href="../my-account/my-account.html" class="btn btn--outline">
+                        Xem đơn hàng của tôi
+                    </a>
+                    <a href="../home/index.html" class="btn btn--primary">
+                        Tiếp tục mua sắm
+                    </a>
+                </div>
+ 
+            </div>
+        </div>
+    </main>
+ 
+    <footer id="main-footer" role="contentinfo"></footer>
+
+    <script src="/js/mock-data.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/order-confirmation/order-confirmation.js"></script>
+</body>
+</html>
