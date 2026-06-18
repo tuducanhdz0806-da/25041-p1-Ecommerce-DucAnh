@@ -1,6 +1,6 @@
 // checkout/checkout.js
 
-let checkoutItems = [];
+let checkoutItems = [];   
 
 document.addEventListener('DOMContentLoaded', function () {
     loadData();
@@ -13,12 +13,63 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
     }
 
-    // Load du lieu san pham can thanh toan
+    // Load du lieu can thanh toan
     loadCheckoutData();
 
-    // Gan cac su kien
+    // Fill thong tin user vao form
+    prefillUserInfo();
+
+    // Gan su kien
     bindEvents();
 });
+
+
+// Fill thong tin user vao form
+function prefillUserInfo() {
+    let currentUser;
+    try {
+        currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    } catch (e) {
+        return; 
+    }
+    if (!currentUser) return;
+
+    // Dien ho ten
+    const fullnameInput = document.getElementById('fullname');
+    if (fullnameInput && currentUser.fullname) {
+        fullnameInput.value = currentUser.fullname;
+    }
+
+    // Dien so dien thoai
+    const phoneInput = document.getElementById('phone');
+    if (phoneInput && currentUser.phone) {
+        phoneInput.value = currentUser.phone;
+    }
+
+
+    const addressInput = document.getElementById('address');
+    if (addressInput) {
+        try {
+            const addresses = JSON.parse(localStorage.getItem('addresses')) || [];
+            // Tim dia chi mac dinh
+            const defaultAddress = addresses.find(function (addr) {
+                return addr.userId == currentUser.id && addr.isDefault;
+            });
+            // neu ko co dia chi mac dinh -> lay dai chi dau tien
+            const fallbackAddress = addresses.find(function (addr) {
+                return addr.userId == currentUser.id;
+            });
+
+            const chosenAddress = defaultAddress || fallbackAddress;
+            if (chosenAddress && chosenAddress.fullAddress) {
+                addressInput.value = chosenAddress.fullAddress;
+            }
+        } catch (e) {
+
+        }
+    }
+}
+
 
 // Load du lieu thanh toan
 function loadCheckoutData() {
@@ -29,14 +80,14 @@ function loadCheckoutData() {
         checkoutItems = [];
     }
 
-    // Neu khong co san pham nao thanh toan -> quay lai gio hang
+    // Neu khong co san pham can thanh toan -> quay ve gio hang
     if (checkoutItems.length === 0) {
         alert('Không có sản phẩm nào để thanh toán. Vui lòng chọn sản phẩm trong giỏ hàng.');
         window.location.href = basePath + 'cart/cart.html';
         return;
     }
 
-    // Render danh sach san pham, tinh tong tien
+    // Render danh sach san pham + tinh tong tien
     renderCheckoutItems();
 }
 
@@ -70,7 +121,8 @@ function renderCheckoutItems() {
     calculateAndRenderTotal();
 }
 
-// Tinh tong tien
+
+// TÍNH TOÁN TỔNG TIỀN
 function calculateAndRenderTotal() {
     const FREE_SHIP_THRESHOLD = 500000;
     const SHIP_COST           = 25000;
@@ -88,19 +140,18 @@ function calculateAndRenderTotal() {
     const shippingCost = subtotal >= FREE_SHIP_THRESHOLD ? 0 : SHIP_COST;
     const totalPrice   = subtotal + shippingCost;
 
-    // Cap nhat ra giao dien
+    // Cap nhat giao dien
     document.getElementById('checkout-total-items').textContent = totalQuantity;
     document.getElementById('checkout-subtotal').textContent    = formatCurrency(subtotal);
     document.getElementById('checkout-shipping').textContent    =
         shippingCost === 0 ? 'Miễn phí' : formatCurrency(shippingCost);
     document.getElementById('checkout-total').textContent       = formatCurrency(totalPrice);
 
-    // Luu lai de dung khi tao order
+    // Luu de dung khi tao order
     window._checkoutSubtotal = subtotal;
     window._checkoutShipping = shippingCost;
     window._checkoutTotal    = totalPrice;
 }
-
 
 // Gan su kien
 function bindEvents() {
@@ -120,19 +171,18 @@ function bindEvents() {
     if (bankRadio) bankRadio.addEventListener('change', toggleBankInfo);
     toggleBankInfo(); 
 
-    // Xoa loi khi ngoi dung go lai
     ['fullname', 'phone', 'address'].forEach(function (field) {
         const el = document.getElementById(field);
         if (el) el.addEventListener('input', function () { clearFieldError(field); });
     });
 
-    // Nut xac nhan thanh toan
+    // Nut xac nhan don hang
     const completeBtn = document.getElementById('complete-order-btn');
     if (completeBtn) completeBtn.addEventListener('click', handlePlaceOrder);
 }
 
 
-// Xu ky dat hang
+// Xu ly dat hang
 function handlePlaceOrder() {
     // Lay du lieu tu form
     const fullname = document.getElementById('fullname').value.trim();
@@ -192,14 +242,13 @@ function handlePlaceOrder() {
     // Don dep checkoutItems
     localStorage.removeItem('checkoutItems');
 
-    // Thong bao thanh cong vao chuyen huong
-    alert('Đặt hàng thành công! Mã đơn hàng của bạn là: ' + newOrder.id);
-    window.location.href = basePath + 'home/index.html';
+    // Chuyen sang trang xac nhan don hang
+    window.location.href = basePath + 'order-confirmation/order-confirmation.html?id=' + newOrder.id;
 }
 
 
-// XÓA SẢN PHẨM ĐÃ THANH TOÁN KHỎI GIỎ HÀNG
-/**
+// Xoa cac san pham da thanh toan khoi gio hang
+/** 
  * @param {string|number} userId 
  */
 function removeCheckedOutItemsFromCart(userId) {
@@ -215,7 +264,7 @@ function removeCheckedOutItemsFromCart(userId) {
         return String(item.productId);
     });
 
-    // Giu lai cac item chua thanh toan
+    // Giu lai cac item chua dc thanh toan
     const newCart = cart.filter(function (item) {
         const isThisUser    = item.userId == userId;
         const isCheckedOut  = checkedOutIds.includes(String(item.productId));
@@ -226,7 +275,7 @@ function removeCheckedOutItemsFromCart(userId) {
 }
 
 
-// VALIDATE FORM
+// Validate form
 function validateCheckoutForm(fullname, phone, address) {
     const errors = [];
 
@@ -247,8 +296,6 @@ function validateCheckoutForm(fullname, phone, address) {
     return errors;
 }
 
-
-// HIỂN THỊ / XÓA LỖI TRÊN FORM
 function showFieldError(fieldName, message) {
     const input   = document.getElementById(fieldName);
     const errorEl = document.getElementById('err-' + fieldName);
@@ -264,7 +311,7 @@ function clearFieldError(fieldName) {
 }
 
 
-// HELPER: TẠO MÃ ĐƠN HÀNG
+// Tao ma don hang
 function generateOrderId() {
     return 'DH' + Date.now();
 }
