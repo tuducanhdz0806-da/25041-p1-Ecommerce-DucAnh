@@ -422,7 +422,7 @@ function handleCheckout() {
     localStorage.setItem('checkoutItems', JSON.stringify(checkoutItems));
  
     // Chuyển sang trang thanh toán
-    window.location.href = basePath + 'checkout/checkout.html';
+    window.location.href = basePath + 'checkout';
 }
 
 // xoa hang loat
