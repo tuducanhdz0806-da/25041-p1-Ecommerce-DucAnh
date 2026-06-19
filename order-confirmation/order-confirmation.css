@@ -1,0 +1,253 @@
+/* order-confirmation/order-confirmation.css ― Kế thừa home.css */
+
+/* =================================================================
+   1. WRAPPER — căn giữa toàn bộ nội dung
+================================================================= */
+.oc-wrapper {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 48px 0 80px;
+}
+
+/* =================================================================
+   2. KHỐI THÔNG BÁO THÀNH CÔNG
+================================================================= */
+.oc-success {
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+.oc-success__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.oc-success__title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #1e293b;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+}
+
+.oc-success__order-id {
+    font-size: 0.95rem;
+    color: #475569;
+    margin-bottom: 12px;
+}
+
+.oc-success__order-id strong {
+    color: #1e40af;
+    font-weight: 700;
+}
+
+.oc-success__thanks {
+    font-size: 0.9rem;
+    color: #64748b;
+    max-width: 420px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* =================================================================
+   3. KHUNG CHI TIẾT ĐƠN HÀNG
+================================================================= */
+.oc-details {
+    background-color: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+}
+
+.oc-section {
+    padding: 24px 28px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.oc-section:last-child {
+    border-bottom: none;
+}
+
+.oc-section__title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 14px;
+}
+
+/* Dòng thông tin (label - value) */
+.oc-info-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 6px 0;
+    font-size: 0.875rem;
+}
+
+.oc-info-row__label {
+    color: #64748b;
+    flex-shrink: 0;
+}
+
+.oc-info-row__value {
+    color: #1e293b;
+    font-weight: 500;
+    text-align: right;
+}
+
+/* Thông tin chuyển khoản */
+.oc-bank-info {
+    margin-top: 12px;
+    padding: 14px 16px;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+}
+
+.oc-bank-info__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.oc-bank-info__list li {
+    font-size: 0.85rem;
+    color: #475569;
+}
+
+.oc-bank-info__list strong {
+    color: #1e293b;
+    font-weight: 600;
+}
+
+/* =================================================================
+   4. DANH SÁCH SẢN PHẨM
+================================================================= */
+.oc-items {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.oc-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.oc-item__img {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background-color: #f8fafc;
+    padding: 4px;
+    flex-shrink: 0;
+}
+
+.oc-item__info {
+    flex: 1;
+    min-width: 0;
+}
+
+.oc-item__name {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #1e293b;
+    line-height: 1.4;
+}
+
+.oc-item__qty {
+    font-size: 0.78rem;
+    color: #94a3b8;
+    margin-top: 2px;
+}
+
+.oc-item__price {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #1e40af;
+    white-space: nowrap;
+}
+
+.oc-empty-note {
+    font-size: 0.875rem;
+    color: #94a3b8;
+    text-align: center;
+    padding: 12px 0;
+}
+
+/* =================================================================
+   5. TỔNG TIỀN
+================================================================= */
+.oc-section--total {
+    background-color: #f8fafc;
+}
+
+.oc-total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.875rem;
+    color: #475569;
+    padding: 4px 0;
+}
+
+.oc-total-row--final {
+    margin-top: 6px;
+    padding-top: 12px;
+    border-top: 1px solid #e2e8f0;
+    font-size: 1.05rem;
+    color: #1e293b;
+}
+
+.oc-total-row--final strong:last-child {
+    color: #1e40af;
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+
+/* =================================================================
+   6. NÚT ĐIỀU HƯỚNG
+================================================================= */
+.oc-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 32px;
+}
+
+.oc-actions .btn {
+    min-width: 200px;
+    height: 44px;
+}
+
+/* =================================================================
+   7. RESPONSIVE
+================================================================= */
+@media (max-width: 600px) {
+    .oc-wrapper { padding: 32px 0 56px; }
+
+    .oc-section { padding: 20px; }
+
+    .oc-info-row {
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .oc-info-row__value { text-align: left; }
+
+    .oc-actions {
+        flex-direction: column;
+    }
+
+    .oc-actions .btn {
+        width: 100%;
+        min-width: 0;
+    }
+}

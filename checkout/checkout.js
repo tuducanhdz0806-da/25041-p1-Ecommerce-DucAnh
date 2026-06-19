@@ -243,7 +243,7 @@ function handlePlaceOrder() {
     localStorage.removeItem('checkoutItems');
 
     // Chuyen sang trang xac nhan don hang
-    window.location.href = basePath + 'order-confirmation/order-confirmation.html?id=' + newOrder.id;
+    window.location.href = basePath + 'order-confirmation/index.html?id=' + newOrder.id;
 }
 
 
