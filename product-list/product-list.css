@@ -178,9 +178,50 @@
 .filter-sidebar__actions {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    padding-top: 8px;
+    gap: 10px;
+    padding-top: 12px;
     border-top: 1px solid #e2e8f0;
+}
+
+
+.filter-sidebar__actions .btn {
+    padding: 14px 24px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    min-height: 50px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+
+.filter-sidebar__actions .btn--primary {
+    background-color: #1e40af;
+    color: #ffffff;
+    border: 2px solid #1e40af;
+}
+
+.filter-sidebar__actions .btn--primary:hover {
+    background-color: #1e3a8a;
+    border-color: #1e3a8a;
+    box-shadow: 0 4px 14px rgba(30, 64, 175, 0.35);
+    transform: translateY(-2px);
+}
+
+
+.filter-sidebar__actions .btn--ghost {
+    background-color: transparent;
+    color: #64748b;
+    border: 2px solid #cbd5e1;
+}
+
+.filter-sidebar__actions .btn--ghost:hover {
+    background-color: #f1f5f9;
+    color: #1e293b;
+    border-color: #94a3b8;
+    transform: translateY(-2px);
 }
 
 /* ── Filter Group ── */
