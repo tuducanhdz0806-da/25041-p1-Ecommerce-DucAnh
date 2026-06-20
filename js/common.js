@@ -75,7 +75,6 @@ function loadHeader() {
                 <a href="${basePath}my-account" class="nav-link nav-link--account">
                     👤 ${currentUser.fullname}
                 </a>
-                <a href="#" id="logout-link" class="nav-link">Đăng xuất</a>
                 <a href="${basePath}cart" class="nav-link nav-link--cart">
                     🛒 Giỏ hàng ${cartBadge}
                 </a>
@@ -140,21 +139,6 @@ function loadHeader() {
                 toggleBtn.setAttribute('aria-expanded', false);
             }
         });
-    }
-
-    // --- Sự kiện: Đăng xuất ---
-    if (currentUserJson) {
-        const logoutLink = document.getElementById('logout-link');
-        if (logoutLink) {
-            logoutLink.addEventListener('click', function (e) {
-                e.preventDefault();
-                if (confirm('Bạn có chắc chắn muốn đăng xuất?')) {
-                    localStorage.removeItem('currentUser');
-                    alert('Đăng xuất thành công!');
-                    location.reload();
-                }
-            });
-        }
     }
 
     // --- Sự kiện: Tìm kiếm ---
