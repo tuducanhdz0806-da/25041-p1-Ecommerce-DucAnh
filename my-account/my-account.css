@@ -1,0 +1,480 @@
+/* my-account/my-account.css */
+
+/* =================================================================
+   1. TIÊU ĐỀ TRANG
+================================================================= */
+.acc-page-header {
+    padding: 28px 0 24px;
+    border-bottom: 1px solid #e2e8f0;
+    margin-bottom: 32px;
+}
+.acc-page-header__title {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #1e293b;
+    letter-spacing: -0.02em;
+}
+
+/* =================================================================
+   2. LAYOUT 2 CỘT
+================================================================= */
+.acc-layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 28px;
+    align-items: start;
+    padding-bottom: 64px;
+}
+
+/* =================================================================
+   3. SIDEBAR (cột 1)
+================================================================= */
+.acc-sidebar {
+    background-color: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: sticky;
+    top: 80px;
+}
+
+/* Avatar + tên */
+.acc-sidebar__profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 4px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.acc-sidebar__avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: #1e40af;
+    color: #ffffff;
+    font-size: 1.6rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.acc-sidebar__name {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.acc-sidebar__email {
+    font-size: 0.8rem;
+    color: #94a3b8;
+}
+
+/* Menu tab */
+.acc-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.acc-menu__item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 14px;
+    font-family: inherit;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #475569;
+    background: none;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.acc-menu__item:hover {
+    background-color: #f8fafc;
+    color: #1e293b;
+}
+
+.acc-menu__item--active {
+    background-color: #eff6ff;
+    color: #1e40af;
+    font-weight: 600;
+}
+
+/* Nút đăng xuất */
+.acc-logout-btn {
+    width: 100%;
+    padding: 10px 14px;
+    font-family: inherit;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #dc2626;
+    background-color: #fff5f5;
+    border: 1.5px solid #fecaca;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.acc-logout-btn:hover {
+    background-color: #fee2e2;
+    border-color: #dc2626;
+}
+
+/* =================================================================
+   4. NỘI DUNG (cột 2)
+================================================================= */
+.acc-tab {
+    display: none;
+}
+
+.acc-tab--active {
+    display: block;
+}
+
+.acc-card {
+    background-color: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 28px;
+}
+
+.acc-card__title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 4px;
+}
+
+.acc-card__sub {
+    font-size: 0.875rem;
+    color: #64748b;
+    margin-bottom: 24px;
+}
+
+/* =================================================================
+   5. FORM THÔNG TIN CÁ NHÂN
+================================================================= */
+.acc-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.field label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #374151;
+}
+
+.field-optional {
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: #94a3b8;
+    margin-left: 4px;
+}
+
+.field input,
+.field textarea {
+    width: 100%;
+    padding: 10px 14px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    color: #1e293b;
+    background-color: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 8px;
+    outline: none;
+    resize: vertical;
+    transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+.field input:focus,
+.field textarea:focus {
+    border-color: #1e40af;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+}
+
+.field-error {
+    font-size: 0.78rem;
+    color: #ef4444;
+    display: none;
+}
+
+.field--error input,
+.field--error textarea {
+    border-color: #ef4444;
+    background-color: #fff5f5;
+}
+
+/* Alert thành công */
+.alert {
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.875rem;
+}
+.alert--success {
+    background-color: #f0fdf4;
+    color: #16a34a;
+    border: 1px solid #bbf7d0;
+}
+
+.acc-submit-btn {
+    align-self: flex-start;
+    height: 42px;
+    padding-inline: 28px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* =================================================================
+   6. LỊCH SỬ ĐƠN HÀNG
+================================================================= */
+.orders-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.orders-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 48px 16px;
+    gap: 10px;
+}
+.orders-empty__icon { font-size: 2.5rem; }
+.orders-empty__text { font-size: 0.9rem; color: #64748b; margin-bottom: 8px; }
+
+/* --- Order Card --- */
+.order-card {
+    border: 1.5px solid #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Dòng tóm tắt (clickable) */
+.order-card__summary {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr auto 20px;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 14px 16px;
+    background-color: #ffffff;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    text-align: left;
+    transition: background-color 0.2s;
+}
+
+.order-card__summary:hover {
+    background-color: #f8fafc;
+}
+
+.order-card__col {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.order-card__label {
+    font-size: 0.72rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.order-card__value {
+    font-size: 0.875rem;
+    color: #1e293b;
+    font-weight: 500;
+}
+
+.order-card__value--id {
+    color: #1e40af;
+    font-weight: 700;
+}
+
+.order-card__value--price {
+    color: #1e40af;
+    font-weight: 700;
+}
+
+/* Badge trạng thái */
+.order-status {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 9999px;
+    white-space: nowrap;
+}
+.order-status--pending    { background: #fef9c3; color: #d97706; }
+.order-status--processing { background: #dbeafe; color: #1e40af; }
+.order-status--shipping   { background: #e0e7ff; color: #4338ca; }
+.order-status--delivered  { background: #dcfce7; color: #16a34a; }
+.order-status--cancelled  { background: #fee2e2; color: #dc2626; }
+
+/* Icon mũi tên toggle */
+.order-card__toggle-icon {
+    font-size: 0.7rem;
+    color: #94a3b8;
+    transition: transform 0.25s;
+}
+.order-card__summary--open .order-card__toggle-icon {
+    transform: rotate(180deg);
+}
+
+/* --- Chi tiết đơn hàng (ẩn/hiện) --- */
+.order-card__detail {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background-color: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+}
+
+.order-card__detail--open {
+    max-height: 600px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.order-detail-items {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.order-detail-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.order-detail-item__img {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    background-color: #ffffff;
+    padding: 3px;
+    flex-shrink: 0;
+}
+
+.order-detail-item__info {
+    flex: 1;
+    min-width: 0;
+}
+
+.order-detail-item__name {
+    font-size: 0.82rem;
+    color: #1e293b;
+    font-weight: 500;
+}
+
+.order-detail-item__qty {
+    font-size: 0.75rem;
+    color: #94a3b8;
+}
+
+.order-detail-item__price {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #1e40af;
+    white-space: nowrap;
+}
+
+.order-detail-address {
+    padding: 12px 16px;
+    border-top: 1px solid #e2e8f0;
+    font-size: 0.82rem;
+    color: #475569;
+}
+
+/* =================================================================
+   7. RESPONSIVE
+================================================================= */
+@media (max-width: 900px) {
+    .acc-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .acc-sidebar {
+        position: static;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .acc-sidebar__profile {
+        flex-direction: row;
+        border-bottom: none;
+        padding-bottom: 0;
+        gap: 10px;
+    }
+
+    .acc-sidebar__avatar { margin-bottom: 0; }
+
+    .acc-menu {
+        flex-direction: row;
+    }
+
+    .acc-logout-btn {
+        width: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .order-card__summary {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        row-gap: 8px;
+    }
+
+    .order-card__toggle-icon {
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: end;
+    }
+
+    .acc-sidebar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .acc-sidebar__profile {
+        flex-direction: column;
+        text-align: center;
+        border-bottom: 1px solid #e2e8f0;
+        padding-bottom: 16px;
+    }
+
+    .acc-menu {
+        flex-direction: column;
+    }
+}

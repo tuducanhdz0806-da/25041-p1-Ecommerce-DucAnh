@@ -33,40 +33,23 @@ function prefillUserInfo() {
         return; 
     }
     if (!currentUser) return;
-
+ 
     // Dien ho ten
     const fullnameInput = document.getElementById('fullname');
     if (fullnameInput && currentUser.fullname) {
         fullnameInput.value = currentUser.fullname;
     }
-
-    // Dien so dien thoai
+ 
+    // Dien sdt
     const phoneInput = document.getElementById('phone');
     if (phoneInput && currentUser.phone) {
         phoneInput.value = currentUser.phone;
     }
-
-
+ 
+    // Dien dia chi
     const addressInput = document.getElementById('address');
-    if (addressInput) {
-        try {
-            const addresses = JSON.parse(localStorage.getItem('addresses')) || [];
-            // Tim dia chi mac dinh
-            const defaultAddress = addresses.find(function (addr) {
-                return addr.userId == currentUser.id && addr.isDefault;
-            });
-            // neu ko co dia chi mac dinh -> lay dai chi dau tien
-            const fallbackAddress = addresses.find(function (addr) {
-                return addr.userId == currentUser.id;
-            });
-
-            const chosenAddress = defaultAddress || fallbackAddress;
-            if (chosenAddress && chosenAddress.fullAddress) {
-                addressInput.value = chosenAddress.fullAddress;
-            }
-        } catch (e) {
-
-        }
+    if (addressInput && currentUser.address) {
+        addressInput.value = currentUser.address;
     }
 }
 
