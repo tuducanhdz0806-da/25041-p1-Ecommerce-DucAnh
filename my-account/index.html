@@ -1,0 +1,114 @@
+<!-- my-account/my-account.html -->
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tài khoản của tôi — TechWorld PC</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../home/home.css">
+    <link rel="stylesheet" href="my-account.css">
+</head>
+<body>
+
+    <header id="main-header" role="banner"></header>
+
+    <main id="main-content">
+        <div class="container">
+
+            <div class="acc-page-header">
+                <h1 class="acc-page-header__title">Tài khoản của tôi</h1>
+            </div>
+
+            <div class="acc-layout">
+                <aside class="acc-sidebar">
+                    <div class="acc-sidebar__profile">
+                        <div class="acc-sidebar__avatar" id="user-avatar">U</div>
+                        <p class="acc-sidebar__name" id="sidebar-username">Đang tải...</p>
+                        <p class="acc-sidebar__email" id="sidebar-email"></p>
+                    </div>
+                    <nav class="acc-menu">
+                        <button class="acc-menu__item acc-menu__item--active" data-tab="personal-info">
+                            👤 Thông tin tài khoản
+                        </button>
+                        <button class="acc-menu__item" data-tab="order-history">
+                            📦 Lịch sử đơn hàng
+                        </button>
+                    </nav>
+                    <button id="logout-btn" class="acc-logout-btn">
+                        ⏻ Đăng xuất
+                    </button>
+
+                </aside>
+
+                <div class="acc-content">
+                    <div id="personal-info" class="acc-tab acc-tab--active">
+                        <div class="acc-card">
+                            <h2 class="acc-card__title">Thông tin cá nhân</h2>
+                            <p class="acc-card__sub">Cập nhật thông tin liên hệ của bạn</p>
+
+                            <form id="personal-info-form" class="acc-form">
+
+                                <div class="field">
+                                    <label for="acc-fullname">Họ và tên</label>
+                                    <input type="text" id="acc-fullname" placeholder="Nguyễn Văn A">
+                                    <span class="field-error" id="err-fullname"></span>
+                                </div>
+
+                                <div class="field">
+                                    <label for="acc-email">Email</label>
+                                    <input type="email" id="acc-email" placeholder="example@email.com">
+                                    <span class="field-error" id="err-email"></span>
+                                </div>
+
+                                <div class="field">
+                                    <label for="acc-phone">Số điện thoại</label>
+                                    <input type="tel" id="acc-phone" placeholder="0912 345 678">
+                                    <span class="field-error" id="err-phone"></span>
+                                </div>
+
+                                <div class="field">
+                                    <label for="acc-address">
+                                        Địa chỉ
+                                        <span class="field-optional">(tùy chọn)</span>
+                                    </label>
+                                    <textarea id="acc-address" rows="2" placeholder="Số nhà, đường, phường/xã, quận/huyện, tỉnh/thành"></textarea>
+                                </div>
+
+                                <div id="update-success-msg" class="alert alert--success" style="display:none;">
+                                    ✓ Cập nhật thông tin thành công!
+                                </div>
+
+                                <button type="submit" class="btn btn--primary acc-submit-btn">
+                                    Cập nhật thông tin
+                                </button>
+
+                            </form>
+                        </div>
+                    </div>
+                    <div id="order-history" class="acc-tab">
+                        <div class="acc-card">
+                            <h2 class="acc-card__title">Lịch sử đơn hàng</h2>
+                            <p class="acc-card__sub">Theo dõi các đơn hàng bạn đã đặt</p>
+                            <div id="orders-list" class="orders-list"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer id="main-footer" role="contentinfo"></footer>
+
+    <script src="../js/mock-data.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="my-account.js"></script>
+
+</body>
+</html>
