@@ -1,0 +1,285 @@
+/* contact/contact.css */
+
+/* =================================================================
+   1. TIÊU ĐỀ TRANG
+================================================================= */
+.contact-page-header {
+    padding: 40px 0 32px;
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.contact-page-header__title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1e293b;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+}
+
+.contact-page-header__sub {
+    font-size: 0.95rem;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+/* =================================================================
+   2. LAYOUT 2 CỘT (45% / 55%)
+================================================================= */
+.contact-layout {
+    display: grid;
+    grid-template-columns: 45fr 55fr;
+    gap: 32px;
+    align-items: start;
+    padding-bottom: 64px;
+}
+
+/* =================================================================
+   3. CỘT TRÁI — THÔNG TIN LIÊN HỆ
+================================================================= */
+.contact-info-card {
+    background-color: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    margin-bottom: 24px;
+}
+
+.contact-info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.contact-info-item__icon {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    background-color: #eff6ff;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+}
+
+.contact-info-item__content h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 4px;
+}
+
+.contact-info-item__content p {
+    font-size: 0.875rem;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+.contact-info-item__content a {
+    color: #1e40af;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.contact-info-item__content a:hover {
+    text-decoration: underline;
+}
+
+/* Khung giả lập bản đồ */
+.contact-map {
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1.5px solid #e2e8f0;
+}
+
+.contact-map__placeholder {
+    aspect-ratio: 16 / 10;
+    background-color: #f1f5f9;
+    background-image:
+        linear-gradient(rgba(30, 64, 175, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30, 64, 175, 0.06) 1px, transparent 1px);
+    background-size: 24px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    text-align: center;
+    color: #94a3b8;
+}
+
+.contact-map__icon {
+    font-size: 2.2rem;
+    margin-bottom: 4px;
+}
+
+.contact-map__placeholder p {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #64748b;
+}
+
+.contact-map__note {
+    font-size: 0.78rem;
+    color: #94a3b8;
+}
+
+/* =================================================================
+   4. CỘT PHẢI — FORM LIÊN HỆ
+================================================================= */
+.contact-form-card {
+    background-color: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 32px;
+}
+
+.contact-form-card__title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 6px;
+}
+
+.contact-form-card__sub {
+    font-size: 0.875rem;
+    color: #64748b;
+    margin-bottom: 24px;
+}
+
+/* Alert thành công */
+.alert {
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    margin-bottom: 20px;
+}
+
+.alert--success {
+    background-color: #f0fdf4;
+    color: #16a34a;
+    border: 1px solid #bbf7d0;
+}
+
+/* =================================================================
+   5. FORM FIELD
+================================================================= */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.contact-form__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.field label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #374151;
+}
+
+.field input,
+.field select,
+.field textarea {
+    width: 100%;
+    padding: 10px 14px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    color: #1e293b;
+    background-color: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 8px;
+    outline: none;
+    resize: vertical;
+    transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+    border-color: #1e40af;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+    color: #94a3b8;
+}
+
+.field select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+}
+
+.field-error {
+    font-size: 0.78rem;
+    color: #ef4444;
+    display: none;
+}
+
+.field--error input,
+.field--error select,
+.field--error textarea {
+    border-color: #ef4444;
+    background-color: #fff5f5;
+}
+
+/* Nút gửi */
+.contact-submit-btn {
+    align-self: flex-start;
+    height: 46px;
+    padding-inline: 36px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-top: 6px;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+
+.contact-submit-btn:hover {
+    box-shadow: 0 4px 14px rgba(30, 64, 175, 0.35);
+    transform: translateY(-1px);
+}
+
+/* =================================================================
+   6. RESPONSIVE
+================================================================= */
+@media (max-width: 900px) {
+    .contact-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .contact-form-card,
+    .contact-info-card {
+        padding: 20px;
+    }
+
+    .contact-form__row {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-submit-btn {
+        width: 100%;
+    }
+}

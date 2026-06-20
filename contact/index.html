@@ -1,0 +1,158 @@
+<!-- contact/contact.html -->
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên hệ — TechWorld PC</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="/images/apple-touch-icon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/apple-touch-icon.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="/home/home.css">
+    <link rel="stylesheet" href="/contact/contact.css">
+</head>
+<body>
+
+    <header id="main-header" role="banner"></header>
+
+    <main id="main-content">
+        <div class="container">
+
+            <!-- Tiêu đề trang -->
+            <div class="contact-page-header">
+                <h1 class="contact-page-header__title">Liên hệ với chúng tôi</h1>
+                <p class="contact-page-header__sub">
+                    Có thắc mắc về sản phẩm hay cần tư vấn cấu hình? Đội ngũ TechWorld PC luôn sẵn sàng hỗ trợ bạn.
+                </p>
+            </div>
+
+            <div class="contact-layout">
+
+                <!-- CỘT TRÁI: Thông tin liên hệ -->
+                <div class="contact-info-col">
+
+                    <div class="contact-info-card">
+
+                        <div class="contact-info-item">
+                            <div class="contact-info-item__icon">📍</div>
+                            <div class="contact-info-item__content">
+                                <h3>Địa chỉ showroom</h3>
+                                <p>Phương Quế, Xã Liên Phương, Huyện Thường Tín, Hà Nội</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-item">
+                            <div class="contact-info-item__icon">📞</div>
+                            <div class="contact-info-item__content">
+                                <h3>Hotline</h3>
+                                <p><a href="tel:18006789">1800 6789</a> (miễn phí)</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-item">
+                            <div class="contact-info-item__icon">✉️</div>
+                            <div class="contact-info-item__content">
+                                <h3>Email hỗ trợ</h3>
+                                <p><a href="mailto:support@techworldpc.vn">support@techworldpc.vn</a></p>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-item">
+                            <div class="contact-info-item__icon">🕐</div>
+                            <div class="contact-info-item__content">
+                                <h3>Giờ làm việc</h3>
+                                <p>8:00 – 21:00 (Thứ 2 – Chủ nhật)</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Khung giả lập bản đồ -->
+                    <div class="contact-map">
+                        <div class="contact-map__placeholder">
+                            <span class="contact-map__icon">🗺️</span>
+                            <p>Bản đồ Google Maps</p>
+                            <span class="contact-map__note">Phương Quế, Xã Liên Phương, Huyện Thường Tín, Hà Nội</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- CỘT PHẢI: Form gửi lời nhắn -->
+                <div class="contact-form-col">
+                    <div class="contact-form-card">
+
+                        <h2 class="contact-form-card__title">Gửi lời nhắn cho chúng tôi</h2>
+                        <p class="contact-form-card__sub">
+                            Điền thông tin bên dưới, chúng tôi sẽ phản hồi trong vòng 24 giờ.
+                        </p>
+
+                        <div id="form-success-msg" class="alert alert--success" style="display:none;">
+                            ✓ Gửi lời nhắn thành công! Chúng tôi sẽ phản hồi bạn sớm nhất.
+                        </div>
+
+                        <form id="contact-form" class="contact-form" novalidate>
+
+                            <div class="contact-form__row">
+                                <div class="field">
+                                    <label for="contact-fullname">Họ và tên</label>
+                                    <input type="text" id="contact-fullname" placeholder="Nguyễn Văn A">
+                                    <span class="field-error" id="err-fullname"></span>
+                                </div>
+
+                                <div class="field">
+                                    <label for="contact-phone">Số điện thoại</label>
+                                    <input type="tel" id="contact-phone" placeholder="0912 345 678">
+                                    <span class="field-error" id="err-phone"></span>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label for="contact-email">Email</label>
+                                <input type="email" id="contact-email" placeholder="example@email.com">
+                                <span class="field-error" id="err-email"></span>
+                            </div>
+
+                            <div class="field">
+                                <label for="contact-subject">Chủ đề</label>
+                                <select id="contact-subject">
+                                    <option value="">-- Chọn chủ đề --</option>
+                                    <option value="Tư vấn sản phẩm">Tư vấn sản phẩm</option>
+                                    <option value="Hỗ trợ kỹ thuật">Hỗ trợ kỹ thuật</option>
+                                    <option value="Bảo hành / Đổi trả">Bảo hành / Đổi trả</option>
+                                    <option value="Khác">Khác</option>
+                                </select>
+                                <span class="field-error" id="err-subject"></span>
+                            </div>
+
+                            <div class="field">
+                                <label for="contact-content">Nội dung lời nhắn</label>
+                                <textarea id="contact-content" rows="5" placeholder="Nhập nội dung bạn muốn gửi đến chúng tôi..."></textarea>
+                                <span class="field-error" id="err-content"></span>
+                            </div>
+
+                            <button type="submit" class="btn btn--primary contact-submit-btn">
+                                Gửi lời nhắn
+                            </button>
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer id="main-footer" role="contentinfo"></footer>
+
+    <script src="/js/mock-data.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/contact/contact.js"></script>
+
+</body>
+</html>
